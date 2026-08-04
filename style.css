@@ -308,7 +308,7 @@ summary {
   height: 53%;
   background:
     linear-gradient(var(--sage), var(--sage)) 0 0 / 100% 34% no-repeat,
-    repeating-linear-gradient(to bottom, transparent 0 18px, rgba(23,23,20,.55) 19px 20px) 25% 52% / 62% 30% no-repeat,
+    repeating-linear-gradient(to bottom, transparent 0 18px, rgba(23, 23, 20, .55) 19px 20px) 25% 52% / 62% 30% no-repeat,
     var(--ivory);
 }
 
@@ -446,6 +446,16 @@ summary {
   color: var(--sage);
 }
 
+.project-visual .glightbox {
+  display: block;
+}
+
+.project-visual .glightbox img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
 .about-heading h2,
 .section-heading h2,
 .work-intro h2,
@@ -511,7 +521,7 @@ summary {
   margin-bottom: -1rem;
 }
 
-.section-heading > p:last-child {
+.section-heading>p:last-child {
   max-width: 450px;
   margin: 0;
   color: rgba(244, 240, 231, 0.72);
@@ -569,30 +579,34 @@ summary {
   position: absolute;
   width: 42%;
   height: 72%;
+  overflow: hidden;
   border: 1px solid rgba(23, 23, 20, 0.35);
   box-shadow: 0 16px 25px rgba(23, 23, 20, 0.16);
+  background: transparent;
 }
 
-.poster::before {
-  content: "";
-  position: absolute;
-  inset: 11%;
-  border: 1px solid rgba(244, 240, 231, 0.78);
-  background: radial-gradient(circle at 50% 65%, var(--sage) 0 24%, transparent 25%);
+.poster::before,
+.poster::after {
+  display: none;
 }
 
 .poster-one {
-  top: 14%;
-  left: 23%;
-  background: var(--teal);
+  left: 20%;
+  top: 10%;
   transform: rotate(-8deg);
 }
 
 .poster-two {
   right: 15%;
-  bottom: -7%;
-  background: var(--ink);
+  top: 35%;
   transform: rotate(7deg);
+}
+
+.poster img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
 }
 
 .visual-social {
@@ -665,9 +679,20 @@ summary {
   background: var(--teal);
 }
 
-.data-bars i:nth-child(2) { height: 78%; background: var(--sage); }
-.data-bars i:nth-child(3) { height: 42%; background: var(--taupe); }
-.data-bars i:nth-child(4) { height: 93%; background: var(--ink); }
+.data-bars i:nth-child(2) {
+  height: 78%;
+  background: var(--sage);
+}
+
+.data-bars i:nth-child(3) {
+  height: 42%;
+  background: var(--taupe);
+}
+
+.data-bars i:nth-child(4) {
+  height: 93%;
+  background: var(--ink);
+}
 
 .visual-identity {
   background: var(--sage);
@@ -701,8 +726,15 @@ summary {
   height: 33.34%;
 }
 
-.identity-swatch::before { top: 0; background: var(--taupe); }
-.identity-swatch::after { bottom: 0; background: var(--ink); }
+.identity-swatch::before {
+  top: 0;
+  background: var(--taupe);
+}
+
+.identity-swatch::after {
+  bottom: 0;
+  background: var(--ink);
+}
 
 .project-content {
   padding: 1.6rem 0 0;
@@ -726,7 +758,7 @@ summary {
   line-height: 1.08;
 }
 
-.project-content > p:not(.project-type) {
+.project-content>p:not(.project-type) {
   max-width: 620px;
   color: rgba(244, 240, 231, 0.7);
   line-height: 1.65;
@@ -765,7 +797,7 @@ summary {
   margin-bottom: -1rem;
 }
 
-.work-intro > p:last-child {
+.work-intro>p:last-child {
   margin: 0;
   color: var(--muted);
   line-height: 1.7;
@@ -789,7 +821,7 @@ summary {
   border-right: 0;
 }
 
-.offer-card > span {
+.offer-card>span {
   color: var(--teal);
   font-family: var(--serif);
 }
