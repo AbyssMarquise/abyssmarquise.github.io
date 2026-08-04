@@ -1,15 +1,18 @@
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Manrope:wght@400;500;600;700&display=swap");
+
 :root {
-  --ivory: #f4f0e7;
-  --ivory-deep: #e9e2d6;
-  --ink: #171714;
-  --muted: #625f58;
-  --teal: #066460;
-  --teal-dark: #044b48;
-  --sage: #c9d7d2;
-  --taupe: #a79c8d;
-  --line: rgba(23, 23, 20, 0.25);
-  --serif: "Bodoni 72", Didot, "Iowan Old Style", "Times New Roman", serif;
-  --sans: "Avenir Next", "Segoe UI", Arial, sans-serif;
+  --ivory: #f8f4ee;
+  --ivory-deep: #e9e1d7;
+  --ink: #202221;
+  --muted: #68645f;
+  --teal: #0b5d63;
+  --teal-dark: #073f43;
+  --sage: #dce7e1;
+  --taupe: #a89b8c;
+  --champagne: #c3a26d;
+  --line: rgba(11, 93, 99, 0.24);
+  --serif: "Cormorant Garamond", "Iowan Old Style", Georgia, serif;
+  --sans: "Manrope", "Avenir Next", "Segoe UI", Arial, sans-serif;
 }
 
 * {
@@ -40,7 +43,7 @@ summary {
 }
 
 :focus-visible {
-  outline: 3px solid var(--teal);
+  outline: 2px solid var(--champagne);
   outline-offset: 4px;
 }
 
@@ -54,7 +57,7 @@ summary {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-bottom: 1px solid var(--teal);
+  border-bottom: 1px solid var(--line);
 }
 
 .wordmark {
@@ -69,7 +72,7 @@ summary {
 .wordmark span {
   font-family: var(--sans);
   font-size: 0.72rem;
-  font-weight: 560;
+  font-weight: 600;
   letter-spacing: 0.12em;
   text-transform: uppercase;
 }
@@ -79,7 +82,7 @@ summary {
   align-items: center;
   gap: clamp(1.1rem, 2vw, 2.2rem);
   font-size: 0.9rem;
-  font-weight: 520;
+  font-weight: 500;
 }
 
 .desktop-nav a {
@@ -94,7 +97,7 @@ summary {
   bottom: 1.25rem;
   left: 0;
   height: 1px;
-  background: var(--teal);
+  background: var(--champagne);
   transform: scaleX(0);
   transform-origin: right;
   transition: transform 220ms ease;
@@ -141,7 +144,7 @@ summary {
   max-height: 740px;
   right: -18vw;
   bottom: -25vw;
-  border: 1px solid rgba(6, 100, 96, 0.28);
+  border: 1px solid rgba(11, 93, 99, 0.28);
   border-radius: 50%;
 }
 
@@ -151,7 +154,7 @@ summary {
   bottom: 10vh;
   left: 3.8vw;
   width: 1px;
-  background: rgba(6, 100, 96, 0.55);
+  background: rgba(11, 93, 99, 0.52);
 }
 
 .section-index span {
@@ -176,7 +179,7 @@ summary {
   margin: 0 0 1.05rem;
   color: var(--teal);
   font-size: 0.76rem;
-  font-weight: 650;
+  font-weight: 700;
   letter-spacing: 0.17em;
   text-transform: uppercase;
 }
@@ -194,7 +197,7 @@ summary {
   width: 72px;
   height: 3px;
   margin: 2.3rem 0 1.3rem;
-  background: var(--teal);
+  background: var(--champagne);
 }
 
 .hero h2 {
@@ -229,13 +232,13 @@ summary {
   gap: 2.2rem;
   padding: 0.9rem 1.6rem;
   font-size: 0.95rem;
-  font-weight: 620;
+  font-weight: 600;
   transition: background-color 180ms ease, color 180ms ease, transform 180ms ease;
 }
 
 .button-primary {
   background: var(--teal);
-  color: #fff;
+  color: var(--ivory);
 }
 
 .button-primary:hover {
@@ -250,10 +253,10 @@ summary {
 
 .text-link {
   padding: 0.5rem 0;
-  border-bottom: 1px solid var(--teal);
+  border-bottom: 1px solid var(--line);
   color: var(--teal);
   font-size: 0.88rem;
-  font-weight: 620;
+  font-weight: 600;
 }
 
 .hero-art {
@@ -270,15 +273,15 @@ summary {
 .art-card {
   position: absolute;
   overflow: hidden;
-  border: 1px solid rgba(23, 23, 20, 0.3);
-  background: #eee8dd;
-  box-shadow: 0 24px 48px rgba(55, 48, 38, 0.14);
+  border: 1px solid rgba(32, 34, 33, 0.22);
+  background: var(--ivory-deep);
+  box-shadow: 0 24px 48px rgba(32, 34, 33, 0.12);
 }
 
 .art-frame-main {
   inset: 3% 0 17% 8%;
   background:
-    linear-gradient(rgba(6, 100, 96, 0.04), rgba(6, 100, 96, 0.01)),
+    linear-gradient(rgba(11, 93, 99, 0.05), rgba(11, 93, 99, 0.01)),
     url("./assets/editorial-hero.webp") 66% center / cover no-repeat;
 }
 
@@ -289,7 +292,7 @@ summary {
   right: 0;
   left: 0;
   height: 42px;
-  border-bottom: 1px solid rgba(23, 23, 20, 0.25);
+  border-bottom: 1px solid rgba(32, 34, 33, 0.20);
   background:
     radial-gradient(circle at 22px 21px, var(--ink) 0 4px, transparent 4.5px),
     radial-gradient(circle at 40px 21px, var(--ink) 0 4px, transparent 4.5px),
@@ -370,13 +373,13 @@ summary {
   height: 43%;
   padding: 1.2rem;
   background: var(--teal);
-  color: #fff;
+  color: var(--ivory);
   transform: rotate(5deg);
 }
 
 .art-card-accent span {
   font-size: 0.68rem;
-  font-weight: 650;
+  font-weight: 700;
   letter-spacing: 0.16em;
   text-transform: uppercase;
 }
@@ -408,7 +411,7 @@ summary {
   gap: 0.8rem;
   color: var(--teal);
   font-size: 0.68rem;
-  font-weight: 650;
+  font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
 }
@@ -425,19 +428,19 @@ summary {
 }
 
 .about-panel {
-  display: grid;
-  grid-template-columns: 0.85fr 1.15fr;
-  gap: 8vw;
+  display: flex;
+  align-items: flex-start;
+  gap: 4rem;
   padding: clamp(5rem, 10vw, 9rem) 9vw;
-  border-top: 1px solid rgba(6, 100, 96, 0.25);
-  background: #ebe5da;
+  border-top: 1px solid rgba(11, 93, 99, 0.24);
+  background: var(--ivory-deep);
 }
 
 .section-label {
   margin: 0 0 2.1rem;
   color: var(--teal);
   font-size: 0.72rem;
-  font-weight: 680;
+  font-weight: 700;
   letter-spacing: 0.18em;
   text-transform: uppercase;
 }
@@ -487,6 +490,29 @@ summary {
   line-height: 1.2;
 }
 
+.about-content {
+  flex: 1;
+}
+
+.portrait-photo {
+  flex: 0 0 300px;
+  width: 300px;
+  height: 400px;
+  overflow: hidden;
+  position: relative;
+  border-radius: 150px 150px 0 0;
+  background: var(--ivory-deep);
+  margin-top: 3rem;
+}
+
+.portrait-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 40%;
+  display: block;
+}
+
 .skill-list {
   display: flex;
   flex-wrap: wrap;
@@ -496,10 +522,10 @@ summary {
 
 .skill-list span {
   padding: 0.65rem 0.85rem;
-  border: 1px solid rgba(6, 100, 96, 0.38);
+  border: 1px solid rgba(11, 93, 99, 0.36);
   color: var(--teal);
   font-size: 0.76rem;
-  font-weight: 580;
+  font-weight: 600;
 }
 
 .projects-section {
@@ -572,7 +598,7 @@ summary {
 }
 
 .visual-campaign {
-  background: linear-gradient(140deg, var(--sage), #e7e0d4 58%);
+  background: linear-gradient(140deg, var(--sage), var(--ivory-deep) 58%);
 }
 
 .poster {
@@ -580,7 +606,7 @@ summary {
   width: 42%;
   height: 72%;
   overflow: hidden;
-  border: 1px solid rgba(23, 23, 20, 0.35);
+  border: 1px solid rgba(32, 34, 33, 0.25);
   box-shadow: 0 16px 25px rgba(23, 23, 20, 0.16);
   background: transparent;
 }
@@ -610,7 +636,7 @@ summary {
 }
 
 .visual-social {
-  background: linear-gradient(35deg, #c4b8a7, var(--ivory));
+  background: linear-gradient(35deg, var(--taupe), var(--ivory));
 }
 
 .phone-card {
@@ -625,7 +651,7 @@ summary {
     linear-gradient(var(--teal), var(--teal)) 12% 14% / 76% 35% no-repeat,
     repeating-linear-gradient(to bottom, var(--ink) 0 3px, transparent 3px 17px) 18% 68% / 64% 20% no-repeat,
     var(--ivory);
-  box-shadow: 18px 25px 0 rgba(6, 100, 96, 0.18);
+  box-shadow: 18px 25px 0 rgba(11, 93, 99, 0.17);
 }
 
 .social-dots {
@@ -639,8 +665,8 @@ summary {
 
 .visual-data {
   background:
-    linear-gradient(rgba(6, 100, 96, 0.12) 1px, transparent 1px) 0 0 / 32px 32px,
-    linear-gradient(90deg, rgba(6, 100, 96, 0.12) 1px, transparent 1px) 0 0 / 32px 32px,
+    linear-gradient(rgba(11, 93, 99, 0.11) 1px, transparent 1px) 0 0 / 32px 32px,
+    linear-gradient(90deg, rgba(11, 93, 99, 0.11) 1px, transparent 1px) 0 0 / 32px 32px,
     var(--ivory);
 }
 
@@ -744,7 +770,7 @@ summary {
   margin: 0 0 0.8rem;
   color: var(--sage);
   font-size: 0.68rem;
-  font-weight: 650;
+  font-weight: 700;
   letter-spacing: 0.15em;
   text-transform: uppercase;
 }
@@ -808,13 +834,13 @@ summary {
   grid-template-columns: repeat(3, minmax(0, 1fr));
   margin: 5rem 0 2.5rem;
   border-top: 1px solid var(--teal);
-  border-bottom: 1px solid var(--teal);
+  border-bottom: 1px solid var(--line);
 }
 
 .offer-card {
   min-height: 330px;
   padding: 2rem;
-  border-right: 1px solid rgba(6, 100, 96, 0.42);
+  border-right: 1px solid rgba(11, 93, 99, 0.38);
 }
 
 .offer-card:last-child {
@@ -851,7 +877,7 @@ summary {
 
 .button-outline:hover {
   background: var(--teal);
-  color: #fff;
+  color: var(--ivory);
   transform: translateY(-2px);
 }
 
@@ -906,7 +932,7 @@ summary {
   align-items: center;
   gap: 1rem;
   padding-bottom: 0.65rem;
-  border-bottom: 2px solid var(--sage);
+  border-bottom: 2px solid var(--champagne);
   font-family: var(--serif);
   font-size: clamp(1.35rem, 3vw, 3rem);
 }
@@ -942,7 +968,7 @@ summary {
     list-style: none;
     color: var(--teal);
     font-size: 0.8rem;
-    font-weight: 680;
+    font-weight: 700;
     letter-spacing: 0.08em;
     text-transform: uppercase;
   }
@@ -959,12 +985,12 @@ summary {
     display: grid;
     border: 1px solid var(--teal);
     background: var(--ivory);
-    box-shadow: 0 18px 36px rgba(23, 23, 20, 0.16);
+    box-shadow: 0 18px 36px rgba(32, 34, 33, 0.14);
   }
 
   .mobile-menu nav a {
     padding: 1rem 1.2rem;
-    border-bottom: 1px solid rgba(6, 100, 96, 0.22);
+    border-bottom: 1px solid rgba(11, 93, 99, 0.20);
   }
 
   .hero {
@@ -1010,7 +1036,7 @@ summary {
   .offer-card {
     min-height: auto;
     border-right: 0;
-    border-bottom: 1px solid rgba(6, 100, 96, 0.42);
+    border-bottom: 1px solid rgba(11, 93, 99, 0.38);
   }
 
   .offer-card:last-child {
