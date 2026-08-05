@@ -17,7 +17,13 @@
     <main>
       <header class="site-header">
         <a class="wordmark" href="#a-propos" aria-label="Retour à l’accueil">
-          CM<span>— Portfolio 2026</span>
+          <img
+            src="images/logo-secondaire-camylle-michaud.svg"
+            alt="Camylle Michaud"
+            class="wordmark-logo"
+          />
+
+          <span>Portfolio 2026</span>
         </a>
 
         <nav class="desktop-nav" aria-label="Navigation principale">
@@ -40,13 +46,13 @@
 
       <section class="about-section">
         <div class="hero">
-          <div class="section-index" aria-hidden="true"><span>01</span></div>
+          <div class="section-index" aria-hidden="true"><span></span></div>
 
           <div class="hero-copy">
             <p class="eyebrow">Stratégie • Design • Communication</p>
             <h1>Camylle<br />Michaud</h1>
             <div class="title-rule" aria-hidden="true"></div>
-            <h2>Designer en communication de marque</h2>
+            <h2>Communications et marketing</h2>
             <p class="intro">
               Le design ne se limite pas à l'esthétique, chaque marque raconte
               une histoire. Elle traduit sa personnalité, inspire confiance et
@@ -87,23 +93,21 @@
             <span>Défiler</span><i aria-hidden="true">↓</i>
           </a>
         </div>
-
-        <div class="about-panel" id="portrait">
-          <div class="portrait-photo">
-            <img
-              src="images/camylle-portrait.webp"
-              alt="Portrait de Camylle Michaud"
-            />
+        <div class="about-panel" id="a-propos">
+          <div class="about-heading">
+            <p class="section-label">À propos</p>
+            <h2>Créer du sens,<br />pas seulement du beau.</h2>
           </div>
 
-          <div class="about-content" id="a-propos">
-            <div class="about-heading">
-              <p class="section-label">À propos</p>
-              <h2>Créer du sens,<br />pas seulement du beau.</h2>
+          <div class="about-content">
+            <div class="portrait-photo">
+              <img
+                src="images/camylle-portrait.webp"
+                alt="Portrait de Camylle Michaud"
+              />
             </div>
 
             <div class="about-copy">
-              <!--   <p class="about-lead">Créativité, stratégie et rigueur</p> -->
               <p>
                 Depuis toujours, je suis attirée par les univers qui racontent
                 une histoire. L'histoire, la littérature, le cinéma et la nature
@@ -136,46 +140,49 @@
 
       <section class="projects-section" id="projets">
         <div class="section-heading">
-          <p class="section-label light">02 — Projets</p>
-          <h2>Une sélection de<br />projets et d’expertises.</h2>
+          <p class="section-label light">Projets</p>
+          <h2>Ma sélection de<br />projets et d’expertises</h2>
           <p>Des réalisations professionnelles et personnelles.</p>
         </div>
 
         <div class="projects-grid">
+          <!-- Projet #01 : Affiches promotionnelles -->
           <article class="project-card">
             <div class="project-visual visual-campaign">
               <span class="project-number">01</span>
 
+              <div
+                class="poster-shadow poster-shadow-one"
+                aria-hidden="true"
+              ></div>
+
               <a
-                href="images/AboQfQ_centree.webp"
+                href="images/projet-01-1.webp"
                 class="glightbox poster poster-one"
                 data-gallery="campaigns"
+                data-description="Affiche destinée à promouvoir l'abonnement à Qui fait Quoi"
               >
                 <img
-                  src="images/AboQfQ_centree.webp"
+                  src="images/projet-01-1.webp"
                   alt="Poster abonnement Qui fait Quoi"
                 />
               </a>
 
+              <div
+                class="poster-shadow poster-shadow-two"
+                aria-hidden="true"
+              ></div>
+
               <a
-                href="images/AboLLM_centree.webp"
+                href="images/projet-01-2.webp"
                 class="glightbox poster poster-two"
                 data-gallery="campaigns"
+                data-description="Affiche destinée à promouvoir l'abonnement au Lien MULTIMÉDIA"
               >
                 <img
-                  src="images/AboLLM_centree.webp"
+                  src="images/projet-01-2.webp"
                   alt="Poster abonnement Le Lien MULTIMÉDIA"
                 />
-              </a>
-
-              <!-- deuxième image du carrousel -->
-              <a
-                href="images/AboLLM_centree.webp"
-                class="glightbox project-gallery"
-                data-gallery="abonnements"
-                data-title="Page de promotion des abonnements Le Lien MULTIMÉDIA"
-                style="display: none"
-              >
               </a>
             </div>
 
@@ -183,45 +190,165 @@
               <p class="project-type">Projet professionnel</p>
               <h3>Affiches promotionnelles</h3>
               <p>
-                Conception d'une page promotionnelle destinée à présenter les
-                avantages de l'abonnement, conçue pour être diffusée dans des
-                courriels de prospection ainsi que dans des revues, magazines et
-                guides, en versions numériques et/ou imprimées.
+                Pages promotionnelles conçuent pour être diffusées dans des
+                courriels de prospection, des revues, magazines, guides et
+                livres en versions numériques et imprimées.
               </p>
               <ul aria-label="Outils et expertises">
                 <li>Infographie</li>
                 <li>Mise en page</li>
-                <li>Communication marketing</li>
+                <li>Marketing</li>
               </ul>
             </div>
           </article>
-
+          <!-- Projet #02 : Publicités web multiformats -->
           <article class="project-card">
-            <div class="project-visual visual-social" aria-hidden="true">
+            <div class="project-visual visual-social">
               <span class="project-number">02</span>
-              <div class="phone-card"></div>
-              <div class="social-dots"></div>
+
+              <div class="browser-window">
+                <div class="browser-bar">
+                  <div class="browser-controls">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                  </div>
+
+                  <div class="browser-address">
+                    <span class="browser-lock">●</span>
+                    <span>magazine-exemple.ca/article</span>
+                  </div>
+                </div>
+
+                <div class="browser-page">
+                  <header class="browser-site-header">
+                    <div class="browser-logo">MÉDIAS</div>
+
+                    <div class="browser-navigation">
+                      <span></span>
+                      <span></span>
+                      <span></span>
+                    </div>
+                  </header>
+
+                  <div class="browser-article">
+                    <p class="browser-category">Actualités numériques</p>
+
+                    <div class="browser-article-title">
+                      <span></span>
+                      <span></span>
+                    </div>
+
+                    <div class="browser-meta">
+                      <span class="browser-avatar"></span>
+                    </div>
+
+                    <div class="browser-paragraph browser-paragraph-top">
+                      <span></span>
+                      <span></span>
+                      <span></span>
+                    </div>
+
+                    <div class="browser-ads">
+                      <a
+                        href="images/projet-02-1.webp"
+                        class="glightbox browser-ad"
+                        data-gallery="projet-02"
+                        data-description="Publicité Web conçue pour promouvoir le Guide de l’industrie numérique 2026."
+                        aria-label="Voir la publicité du Guide de l’industrie numérique 2026"
+                      >
+                        <img
+                          src="images/projet-02-1.webp"
+                          alt="Publicité Web pour le Guide de l’industrie numérique 2026"
+                        />
+                      </a>
+
+                      <a
+                        href="images/projet-02-2.webp"
+                        class="glightbox browser-ad"
+                        data-gallery="projet-02"
+                        data-description="Publicité Web conçue pour promouvoir le Guide annuel Qui fait Quoi 2026."
+                        aria-label="Voir la publicité du Guide annuel Qui fait Quoi 2026"
+                      >
+                        <img
+                          src="images/projet-02-2.webp"
+                          alt="Publicité Web pour le Guide annuel Qui fait Quoi 2026"
+                        />
+                      </a>
+                    </div>
+
+                    <div class="browser-article-title">
+                      <span></span>
+                      <span></span>
+                    </div>
+
+                    <div class="browser-meta">
+                      <span class="browser-avatar"></span>
+                    </div>
+
+                    <div class="browser-paragraph browser-paragraph-top">
+                      <span></span>
+                      <span></span>
+                      <span></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <a
+                href="images/projet-02-3.webp"
+                class="glightbox project-gallery-image"
+                data-gallery="projet-02"
+                data-description="Autre déclinaison de la campagne destinée au Web, aux infolettres ou aux médias sociaux."
+                aria-label="Voir la troisième publicité Web"
+              ></a>
             </div>
+
             <div class="project-content">
               <p class="project-type">Projet professionnel</p>
+
               <h3>Publicités web multiformats</h3>
+
               <p>
                 Création de visuels publicitaires pour le Web, les infolettres
                 et les médias sociaux.
               </p>
+
               <ul aria-label="Outils et expertises">
                 <li>Infographie</li>
+                <li>Publicités</li>
+                <li>Infolettres</li>
+                <li>Design web</li>
                 <li>Réseaux sociaux</li>
               </ul>
             </div>
           </article>
-
+          <!-- Projet #03 : Tableau de bord de visualisation de données -->
           <article class="project-card">
-            <div class="project-visual visual-data" aria-hidden="true">
+            <div class="project-visual visual-data">
               <span class="project-number">03</span>
-              <div class="data-ring"></div>
-              <div class="data-bars"><i></i><i></i><i></i><i></i></div>
+
+              <a
+                href="images/projet-03-1.webp"
+                class="glightbox project-main-image"
+                data-gallery="projet-03"
+                data-title="Tableau de bord — vue d’ensemble"
+              >
+                <img
+                  src="images/projet-03-1.webp"
+                  alt="Tableau de bord de visualisation de données"
+                />
+              </a>
+
+              <a
+                href="images/projet-03-2.webp"
+                class="glightbox project-gallery-image"
+                data-gallery="projet-03"
+                data-title="Tableau de bord — vue détaillée"
+                aria-label="Voir le deuxième visuel du projet"
+              ></a>
             </div>
+
             <div class="project-content">
               <p class="project-type">Projet personnel et académique</p>
               <h3>Données transformées en récits visuels</h3>
@@ -230,6 +357,7 @@
                 lisibles pour faire ressortir les tendances et soutenir la prise
                 de décision.
               </p>
+
               <ul aria-label="Outils et expertises">
                 <li>Power BI</li>
                 <li>Bases de données</li>
@@ -237,22 +365,50 @@
               </ul>
             </div>
           </article>
-
+          <!-- Projet #04 : Identité de marque -->
           <article class="project-card">
-            <div class="project-visual visual-identity" aria-hidden="true">
+            <div class="project-visual visual-identity">
               <span class="project-number">04</span>
-              <div class="identity-letter">C</div>
-              <div class="identity-swatch"></div>
+
+              <a
+                href="images/projet-04-1.webp"
+                class="glightbox project-main-image"
+                data-gallery="projet-04"
+                data-title="Identité de marque — présentation principale"
+              >
+                <img
+                  src="images/projet-04-1.webp"
+                  alt="Présentation d’une identité de marque"
+                />
+              </a>
+
+              <a
+                href="images/projet-04-2.webp"
+                class="glightbox project-gallery-image"
+                data-gallery="projet-04"
+                data-title="Identité visuelle de marque"
+                aria-label="Voir le deuxième visuel du projet"
+              ></a>
+
+              <a
+                href="images/projet-04-3.webp"
+                class="glightbox project-gallery-image"
+                data-gallery="projet-04"
+                data-title="Identité de marque — applications visuelles"
+                aria-label="Voir le troisième visuel du projet"
+              ></a>
             </div>
+
             <div class="project-content">
               <p class="project-type">Projet personnel</p>
-              <h3>Identité de marque</h3>
+              <h3>Identité visuelle de marque</h3>
               <p>
                 Créer des identités visuelles élégantes, intemporelles et
                 stratégiques qui racontent l'histoire des entreprises avec
                 authenticité. Recherche de concepts, ADN de marque, palette
                 officielle, typographie, logo et monogramme.
               </p>
+
               <ul aria-label="Outils et expertises">
                 <li>Graphisme</li>
                 <li>Conception visuelle</li>
@@ -265,7 +421,7 @@
 
       <section class="work-section" id="travaillons-ensemble">
         <div class="work-intro">
-          <p class="section-label">03 — Travaillons ensemble</p>
+          <p class="section-label">Travaillons ensemble</p>
           <h2>Un format de collaboration adapté à votre besoin.</h2>
           <p>
             Chaque mandat commence par une courte discussion. Les livrables, le
@@ -307,7 +463,7 @@
       </section>
 
       <section class="contact-section" id="contact">
-        <div class="contact-index" aria-hidden="true">04</div>
+        <div class="contact-index" aria-hidden="true"></div>
         <p class="section-label light">Contact</p>
         <h2>Une idée en tête?<br />Écrivons la suite.</h2>
         <p class="contact-copy">
