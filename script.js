@@ -1,3 +1,26 @@
+async function loadEditableContent() {
+  try {
+    const response = await fetch("content/site.json", { cache: "no-store" });
+    if (!response.ok) return;
+
+    const content = await response.json();
+    document.querySelectorAll("[data-content]").forEach((element) => {
+      const value = content[element.dataset.content];
+      if (typeof value === "string") element.innerHTML = value;
+    });
+
+    const email = document.querySelector("[data-email]");
+    if (email && typeof content.email === "string") {
+      email.href = `mailto:${content.email}`;
+      email.firstChild.textContent = `${content.email} `;
+    }
+  } catch (error) {
+    console.warn("Le contenu éditable n’a pas pu être chargé.", error);
+  }
+}
+
+loadEditableContent();
+
 const lightbox = GLightbox({
   selector: ".glightbox",
   loop: true,
