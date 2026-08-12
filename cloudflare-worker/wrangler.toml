@@ -1,0 +1,6 @@
+name = "camylle-portfolio-decap-auth"
+main = "src/index.js"
+compatibility_date = "2026-08-12"
+
+[vars]
+SITE_ORIGIN = "https://abyssmarquise.github.io"
