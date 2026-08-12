@@ -2,7 +2,7 @@ backend:
   name: github
   repo: abyssmarquise/abyssmarquise.github.io
   branch: main
-  base_url: https://REPLACE_WITH_YOUR_WORKER.workers.dev
+  base_url: https://camylle-portfolio-decap-auth.abyssmarquise.workers.dev
   auth_endpoint: auth
 
 media_folder: images
@@ -23,11 +23,19 @@ collections:
           - { label: "Grand titre", name: headline, widget: string }
           - { label: "Introduction 1", name: heroIntroOne, widget: text }
           - { label: "Introduction 2", name: heroIntroTwo, widget: text }
-          - { label: "Titre À propos (autorise <br />)", name: aboutTitle, widget: string }
+          - {
+              label: "Titre À propos (autorise <br />)",
+              name: aboutTitle,
+              widget: string,
+            }
           - { label: "À propos — paragraphe 1", name: aboutOne, widget: text }
           - { label: "À propos — paragraphe 2", name: aboutTwo, widget: text }
           - { label: "À propos — paragraphe 3", name: aboutThree, widget: text }
-          - { label: "Titre contact (autorise <br />)", name: contactTitle, widget: string }
+          - {
+              label: "Titre contact (autorise <br />)",
+              name: contactTitle,
+              widget: string,
+            }
           - { label: "Texte contact", name: contactCopy, widget: text }
           - { label: Courriel, name: email, widget: string }
           - { label: Lieu, name: location, widget: string }
