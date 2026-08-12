@@ -1,0 +1,5 @@
+# Cache Cloudflare local
+.wrangler/
+
+# Dépendances locales
+node_modules/
