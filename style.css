@@ -481,6 +481,7 @@ summary {
   .hero-loading .hero-copy h1,
   .hero-loading [data-content="heroIntroTwo"],
   .hero-loading .hero-actions,
+  .hero-loading .hero-art,
   .hero-loading>.portrait-photo {
     opacity: 1;
   }
@@ -488,25 +489,8 @@ summary {
   .hero-ready .hero-copy h1,
   .hero-ready [data-content="heroIntroTwo"],
   .hero-ready .hero-actions,
+  .hero-ready .hero-art,
   .hero-ready>.portrait-photo {
-    animation: none;
-  }
-}
-
-/* Accessibilité */
-@media (prefers-reduced-motion: reduce) {
-
-  .hero-loading .hero-copy h1,
-  .hero-loading [data-content="heroIntroTwo"],
-  .hero-loading .hero-actions,
-  .hero-loading .hero-art {
-    opacity: 1;
-  }
-
-  .hero-ready .hero-copy h1,
-  .hero-ready [data-content="heroIntroTwo"],
-  .hero-ready .hero-actions,
-  .hero-ready .hero-art {
     animation: none;
   }
 }
@@ -735,7 +719,7 @@ summary {
   height: 3.75rem;
   padding: 0;
 
-  /* Mets ici la mÃªme couleur que celle de Â« Camylle Michaud Â» */
+  /* Même couleur que « Camylle Michaud » */
   color: var(--teal);
 
   background-color: rgba(255, 255, 255, 0.22);
@@ -779,7 +763,7 @@ summary {
 
 .about-heading {
   width: 100%;
-  scroll-margin-top: 80px;
+  scroll-margin-top: 70px;
 }
 
 .section-label {
@@ -810,7 +794,7 @@ summary {
 .contact-section h2 {
   margin: 0;
   font-family: var(--serif);
-  font-size: clamp(3rem, 5.6vw, 6.2rem);
+  font-size: clamp(1rem, 3.6vw, 4.2rem);
   font-weight: 400;
   letter-spacing: -0.055em;
   line-height: 0.95;
@@ -850,10 +834,10 @@ summary {
 
 .about-copy {
   width: 100%;
-  max-width: 720px;
-  padding-top: 0;
+  max-width: 900px;
+  padding-top: 2rem;
   color: var(--muted);
-  font-size: 1rem;
+  font-size: 0.95rem;
   line-height: 1.75;
 }
 
@@ -919,7 +903,7 @@ summary {
   min-width: 0;
 }
 
-/* Navigation entre plusieurs projets regroupÃ©s dans une seule carte. */
+/* Navigation entre plusieurs projets regroupés dans une seule carte. */
 .grouped-project-card {
   position: relative;
 }
@@ -1009,7 +993,6 @@ summary {
   aspect-ratio: 1.28;
   overflow: hidden;
   border: 1px solid rgba(244, 240, 231, 0.28);
-  background: var(--ivory);
   background: linear-gradient(140deg, var(--sage), var(--ivory-deep) 58%);
   transition: transform 300ms ease, box-shadow 300ms ease;
 }
@@ -1063,7 +1046,7 @@ summary {
   height: auto;
 }
 
-/* Supprime les pseudo-Ã©lÃ©ments */
+/* Supprime les pseudo-éléments */
 .browser-ad::before,
 .browser-ad::after,
 .poster::before,
@@ -1085,7 +1068,7 @@ summary {
   transform: rotate(7deg);
 }
 
-/* Plaques derriÃ¨re les affiches */
+/* Plaques derrière les affiches */
 .poster-shadow {
   position: absolute;
 
@@ -1558,7 +1541,7 @@ summary {
     transform 180ms ease;
 }
 
-/* Apparition de la bulle au survol de lâ€™image */
+/* Apparition de la bulle au survol de l’image */
 .gslide-media:hover+.gslide-description,
 .gslide-inner-container:hover .gslide-description {
   opacity: 1;
@@ -1659,13 +1642,17 @@ summary {
   transform: translateY(-2px);
 }
 
+#contact {
+  scroll-margin-top: -4rem;
+}
+
 .contact-section {
   position: relative;
   overflow: hidden;
-  min-height: 82svh;
   padding: clamp(5rem, 10vw, 9rem) 9vw 3rem;
   background: var(--ink);
   color: var(--ivory);
+  padding-bottom: 12rem;
 }
 
 .contact-section::after {
@@ -1693,7 +1680,7 @@ summary {
   position: relative;
   z-index: 1;
   max-width: 900px;
-  font-size: clamp(4rem, 8vw, 9rem);
+  font-size: clamp(2rem, 5vw, 6rem);
 }
 
 .contact-copy {
