@@ -57,6 +57,6 @@ collections:
             ["Identité visuelle", "Publicité", "Design éditorial", "Web"],
         }
       - { label: Description, name: description, widget: text }
-      - { label: Image principale, name: image, widget: image }
+      - { label: Image principale, name: image, widget: image, required: false }
       - { label: Année, name: year, widget: string }
       - { label: Compétences, name: skills, widget: list }
