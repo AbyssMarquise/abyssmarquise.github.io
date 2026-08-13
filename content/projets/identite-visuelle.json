@@ -1,20 +1,16 @@
 {
   "title": "Identité visuelle de ma marque professionnelle",
+  "date": "2026-08-13",
+  "classification": {
   "category": "Identité visuelle",
+  "projectType": "Guide de marque"
+  },
   "domain": "Graphisme",
   "client": "Moi même",
   "brief": "Réalisée en 2026 avec Canva. Ce tableau représente l'identité visuelle créée pour ma marque professionnelle.",
   "image": "/images/projet-01-1.webp",
-  "year": "2026",
-  "skills": [
-    "Logo",
-    "Palette de couleurs",
-    "Typographie",
-    "Monogramme",
-    "Guide de marque"
-  ],
-  "classification": {
-    "category": "Identité visuelle",
-    "projectType": "Guide de marque"
-  }
+  "tools": [
+    "Canva"
+  ]
+
 }

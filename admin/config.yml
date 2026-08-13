@@ -142,6 +142,11 @@ collections:
         name: title
         widget: string
 
+      - label: Date
+        name: date
+        widget: datetime
+        format: YYYY-MM-DD
+
       - label: Catégorie et type de projet
         name: classification
         widget: category_project_type
@@ -162,3 +167,11 @@ collections:
         name: image
         widget: image
         required: false
+
+      - label: Outils
+        name: tools
+        widget: list
+        field:
+          label: Outil
+          name: tool
+          widget: string
