@@ -40,23 +40,38 @@ collections:
           - { label: Courriel, name: email, widget: string }
           - { label: Lieu, name: location, widget: string }
 
-  - name: projets
-    label: Projets
-    folder: content/projets
+  - name: categories
+    label: Catégories
+    label_singular: Catégorie
+    folder: content/categories
     create: true
     slug: "{{slug}}"
     extension: json
     format: json
     fields:
       - { label: Titre, name: title, widget: string }
-      - {
-          label: Catégorie,
-          name: category,
-          widget: select,
-          options:
-            ["Identité visuelle", "Publicité", "Design éditorial", "Web"],
-        }
+      - { label: Description, name: description, widget: text }
+      - label: Types de projets
+        name: projectTypes
+        widget: list
+        field:
+          label: Type de projet
+          name: projectType
+          widget: string
+
+  - name: projets
+    label: Projets
+    label_singular: Projet
+    folder: categories/content/projets
+    create: true
+    slug: "{{slug}}"
+    extension: json
+    format: json
+    fields:
+      - { label: Titre, name: title, widget: string }
+      - label: Catégorie et type de projet
+        name: classification
+        widget: category_project_type
       - { label: Description, name: description, widget: text }
       - { label: Image principale, name: image, widget: image, required: false }
       - { label: Année, name: year, widget: string }
-      - { label: Compétences, name: skills, widget: list }

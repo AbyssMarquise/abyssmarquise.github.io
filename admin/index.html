@@ -6,6 +6,145 @@
     <title>Administration — Camylle Michaud</title>
   </head>
   <body>
+    <script>
+      window.CMS_MANUAL_INIT = true;
+    </script>
+
     <script src="https://unpkg.com/decap-cms@^3.7.0/dist/decap-cms.js"></script>
+
+    <script>
+      const CategoriesControl = createClass({
+        getInitialState() {
+          return { categories: [], error: "" };
+        },
+
+        componentDidMount() {
+          fetch(
+            "https://api.github.com/repos/abyssmarquise/abyssmarquise.github.io/contents/content/categories?ref=main",
+          )
+            .then((response) => {
+              if (!response.ok) throw new Error();
+              return response.json();
+            })
+            .then((files) =>
+              Promise.all(
+                files
+                  .filter(
+                    (file) =>
+                      file.type === "file" && file.name.endsWith(".json"),
+                  )
+                  .map((file) =>
+                    fetch(file.download_url).then((response) =>
+                      response.json(),
+                    ),
+                  ),
+              ),
+            )
+            .then((categories) => this.setState({ categories }))
+            .catch(() =>
+              this.setState({
+                error:
+                  "Crée d’abord au moins une catégorie, puis recharge Decap.",
+              }),
+            );
+        },
+
+        changeCategory(event) {
+          this.props.onChange({
+            category: event.target.value,
+            contentType: "",
+          });
+        },
+
+        changeContentType(event) {
+          const value = this.props.value || {};
+          this.props.onChange({
+            category: value.category || "",
+            contentType: event.target.value,
+          });
+        },
+
+        render() {
+          const value = this.props.value || {};
+          const category = value.category || "";
+          const contentType = value.contentType || "";
+
+          const selectedCategory = this.state.categories.find(
+            (item) => item.title === category,
+          );
+
+          const contentTypes = selectedCategory
+            ? selectedCategory.projectTypes || []
+            : [];
+
+          return h("div", { className: this.props.classNameWrapper }, [
+            h("label", { key: "category-label" }, "Catégorie"),
+            h(
+              "select",
+              {
+                key: "category",
+                id: `${this.props.forID}-category`,
+                value: category,
+                onChange: this.changeCategory,
+                required: true,
+              },
+              [
+                h("option", { key: "", value: "" }, "Choisir une catégorie"),
+                ...this.state.categories.map((item) =>
+                  h(
+                    "option",
+                    { key: item.title, value: item.title },
+                    item.title,
+                  ),
+                ),
+              ],
+            ),
+
+            h(
+              "label",
+              {
+                key: "type-label",
+                style: { display: "block", marginTop: "1rem" },
+              },
+              "Type de contenu",
+            ),
+            h(
+              "select",
+              {
+                key: "type",
+                id: `${this.props.forID}-type`,
+                value: contentType,
+                onChange: this.changeContentType,
+                disabled: !category,
+                required: true,
+              },
+              [
+                h(
+                  "option",
+                  { key: "", value: "" },
+                  category
+                    ? "Choisir un type de contenu"
+                    : "Choisis d’abord une catégorie",
+                ),
+                ...contentTypes.map((item) =>
+                  h("option", { key: item, value: item }, item),
+                ),
+              ],
+            ),
+
+            this.state.error
+              ? h(
+                  "p",
+                  { key: "error", style: { color: "#b42318" } },
+                  this.state.error,
+                )
+              : null,
+          ]);
+        },
+      });
+
+      CMS.registerWidget("category_content_type", CategoriesControl);
+      window.initCMS();
+    </script>
   </body>
 </html>
