@@ -40,7 +40,7 @@ collections:
           - { label: Courriel, name: email, widget: string }
           - { label: Lieu, name: location, widget: string }
 
-    - name: categories
+  - name: categories
     label: Catégories
     files:
       - name: categories
@@ -79,3 +79,4 @@ collections:
       - { label: Description, name: description, widget: text }
       - { label: Image principale, name: image, widget: image, required: false }
       - { label: Année, name: year, widget: string }
+      - { label: Compétences, name: skills, widget: list }

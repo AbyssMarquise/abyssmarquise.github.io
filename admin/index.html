@@ -126,7 +126,7 @@
                     ? "Choisir un type de projet"
                     : "Choisis d’abord une catégorie",
                 ),
-                ...projectTypes.map((item) =>
+                ...contentTypes.map((item) =>
                   h("option", { key: item, value: item }, item),
                 ),
               ],
@@ -143,7 +143,7 @@
         },
       });
 
-      CMS.registerWidget("category_content_type", CategoriesControl);
+      CMS.registerWidget("category_project_type", CategoriesControl);
       window.initCMS();
     </script>
   </body>
