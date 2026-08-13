@@ -1,5 +1,5 @@
-{
-  "verbe": "Créer",
+  {
+  "verb": "Créer",
   "title": "Identité visuelle",
   "description": "Donnez une personnalité unique à votre entreprise en créant une image de marque cohérente et mémorable.",
   "projectTypes": [
@@ -8,6 +8,5 @@
     "Typographie",
     "Monogramme",
     "Guide de marque"
-  ],
-  "verb": "Créer"
+  ]
 }
