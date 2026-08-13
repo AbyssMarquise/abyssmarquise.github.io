@@ -69,11 +69,6 @@ collections:
         file: content/presentation-projets.json
         format: json
         fields:
-          - label: Petit titre de section
-            name: projectsLabel
-            widget: string
-            default: Projets
-
           - label: Titre principal
             name: projectsTitle
             widget: string
