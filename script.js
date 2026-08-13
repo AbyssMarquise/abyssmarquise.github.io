@@ -1,25 +1,11 @@
-const CONTENT_FILES = [
+const PAGE_FILES = [
   "content/accueil.json",
   "content/a-propos.json",
   "content/presentation-projets.json",
   "content/contact.json",
 ];
 
-const GITHUB_REPOSITORY = "abyssmarquise/abyssmarquise.github.io";
-const GITHUB_BRANCH = "main";
-
-function escapeHtml(value = "") {
-  return String(value)
-    .replaceAll("&", "&amp;")
-    .replaceAll("<", "&lt;")
-    .replaceAll(">", "&gt;")
-    .replaceAll('"', "&quot;")
-    .replaceAll("'", "&#039;");
-}
-
-function normalizePublicPath(path = "") {
-  return String(path).replace(/^\//, "");
-}
+const REPOSITORY = "abyssmarquise/abyssmarquise.github.io";
 
 async function fetchJson(path) {
   const response = await fetch(path, { cache: "no-store" });
@@ -27,44 +13,35 @@ async function fetchJson(path) {
   return response.json();
 }
 
-function applyEditableContent(content) {
+function publicPath(path = "") {
+  return String(path).replace(/^\//, "");
+}
+
+async function loadPageContent() {
+  const sections = await Promise.all(PAGE_FILES.map(fetchJson));
+  const content = Object.assign({}, ...sections);
+
   document.querySelectorAll("[data-content]").forEach((element) => {
     const value = content[element.dataset.content];
     if (typeof value !== "string") return;
     element.innerHTML = value;
-    if (element.hasAttribute("hidden") && value.trim()) {
-      element.removeAttribute("hidden");
-    }
+    if (value.trim()) element.removeAttribute("hidden");
   });
 
   const email = document.querySelector("[data-email]");
-  if (email && typeof content.email === "string") {
+  if (email && content.email) {
     email.href = `mailto:${content.email}`;
     email.firstChild.textContent = `${content.email} `;
   }
 }
 
-async function loadEditableContent() {
-  try {
-    const sections = await Promise.all(CONTENT_FILES.map(fetchJson));
-    applyEditableContent(Object.assign({}, ...sections));
-  } catch (error) {
-    console.warn("Le contenu éditable n’a pas pu être chargé.", error);
-  }
-}
-
-async function listContentFiles() {
-  const treeUrl =
-    `https://api.github.com/repos/${GITHUB_REPOSITORY}/git/trees/` +
-    `${GITHUB_BRANCH}?recursive=1`;
-  const response = await fetch(treeUrl, {
+async function listCmsFiles() {
+  const url = `https://api.github.com/repos/${REPOSITORY}/git/trees/main?recursive=1`;
+  const response = await fetch(url, {
     cache: "no-store",
     headers: { Accept: "application/vnd.github+json" },
   });
-
-  if (!response.ok) {
-    throw new Error("GitHub n’a pas retourné la liste des contenus.");
-  }
+  if (!response.ok) throw new Error("Impossible de lire les collections Decap.");
 
   const data = await response.json();
   const paths = (data.tree || [])
@@ -77,82 +54,102 @@ async function listContentFiles() {
   };
 }
 
-function projectDescription(project) {
-  const details = [];
-  if (project.classification?.projectType) {
-    details.push(`<strong>Type :</strong> ${escapeHtml(project.classification.projectType)}`);
+function projectDetails(project) {
+  return [
+    project.classification?.projectType && `Type : ${project.classification.projectType}`,
+    project.domain && `Domaine : ${project.domain}`,
+    project.client && `Client : ${project.client}`,
+    project.date && `Date : ${project.date}`,
+    project.brief && `Brief : ${project.brief}`,
+    project.tools?.length && `Outils : ${project.tools.join(", ")}`,
+  ]
+    .filter(Boolean)
+    .join(" · ");
+}
+
+function updateProjectLink(link, project) {
+  if (!link || !project?.image) return;
+  const image = publicPath(project.image);
+  link.href = image;
+  link.dataset.title = project.title || "Projet";
+  link.dataset.description = projectDetails(project);
+  link.setAttribute("aria-label", `Voir ${project.title || "le projet"}`);
+
+  const thumbnail = link.querySelector("img");
+  if (thumbnail) {
+    thumbnail.src = image;
+    thumbnail.alt = project.title || "Projet";
   }
-  if (project.domain) details.push(`<strong>Domaine :</strong> ${escapeHtml(project.domain)}`);
-  if (project.client) details.push(`<strong>Client :</strong> ${escapeHtml(project.client)}`);
-  if (project.date) details.push(`<strong>Date :</strong> ${escapeHtml(project.date)}`);
-  if (project.brief) details.push(`<strong>Brief :</strong> ${escapeHtml(project.brief)}`);
-  if (Array.isArray(project.tools) && project.tools.length) {
-    details.push(`<strong>Outils :</strong> ${project.tools.map(escapeHtml).join(", ")}`);
+}
+
+function updateCategoryCard(category, projects) {
+  const card = [...document.querySelectorAll("[data-category-card]")].find(
+    (item) => item.dataset.categoryCard === category.title,
+  );
+  if (!card) return;
+
+  const verb = card.querySelector(".project-type");
+  const title = card.querySelector(".project-content h3");
+  const description = card.querySelector(".project-content > p:not(.project-type)");
+  const list = card.querySelector(".project-content > ul");
+
+  if (verb && category.verb) verb.textContent = category.verb;
+  if (title && category.title) title.textContent = category.title;
+  if (description && category.description) description.textContent = category.description;
+
+  if (list && Array.isArray(category.projectTypes)) {
+    list.replaceChildren(
+      ...category.projectTypes.map((type) => {
+        const item = document.createElement("li");
+        item.textContent = type;
+        return item;
+      }),
+    );
   }
-  return details.join("<br>");
+
+  if (category.title === "Publicités et campagnes") {
+    const posters = card.querySelectorAll(".poster.glightbox");
+    projects.slice(0, posters.length).forEach((project, index) => {
+      updateProjectLink(posters[index], project);
+    });
+    return;
+  }
+
+  const mainImage = card.querySelector(".project-main-image.glightbox");
+  if (mainImage && projects[0]) updateProjectLink(mainImage, projects[0]);
 }
 
-function categorySlug(title = "") {
-  return String(title)
-    .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "")
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/^-|-$/g, "");
+async function loadCmsCollections() {
+  const files = await listCmsFiles();
+  const [categories, projects] = await Promise.all([
+    Promise.all(files.categories.map(fetchJson)),
+    Promise.all(files.projects.map(fetchJson)),
+  ]);
+
+  categories.forEach((category) => {
+    const relatedProjects = projects.filter(
+      (project) => project.classification?.category === category.title,
+    );
+    updateCategoryCard(category, relatedProjects);
+  });
 }
 
-function createProjectVisual(category, projects, number) {
-  const gallery = `categorie-${categorySlug(category.title)}`;
-  const projectsWithImages = projects.filter((project) => project.image);
-  const visualClass = projectsWithImages.length > 1 ? "project-visual--gallery" : "";
-  const links = projectsWithImages
-    .map((project, index) => {
-      const image = normalizePublicPath(project.image);
-      const mainClass = index === 0 ? "project-main-image" : "project-gallery-image";
-      return `
-        <a href="${escapeHtml(image)}" class="glightbox ${mainClass}"
-          data-gallery="${escapeHtml(gallery)}"
-          data-title="${escapeHtml(project.title || category.title)}"
-          data-description="${escapeHtml(projectDescription(project))}"
-          aria-label="Voir ${escapeHtml(project.title || category.title)}">
-          ${index === 0 ? `<img src="${escapeHtml(image)}" alt="${escapeHtml(project.title || category.title)}">` : ""}
-        </a>`;
-    })
-    .join("");
-
-  return `
-    <div class="project-visual visual-dynamic ${visualClass} ${projectsWithImages.length ? "" : "empty-project-visual"}">
-      <span class="project-number">${String(number).padStart(2, "0")}</span>
-      ${links}
-      ${projectsWithImages.length > 1 ? `<span class="project-count">${projectsWithImages.length} projets</span>` : ""}
-    </div>`;
+function activateGroupedProjects() {
+  document.querySelectorAll("[data-grouped-project]").forEach((card) => {
+    const slides = [...card.querySelectorAll("[data-project-slide]")];
+    card.querySelectorAll("[data-project-switch]").forEach((button) => {
+      button.addEventListener("click", (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+        slides.forEach((slide) => {
+          slide.hidden = slide.dataset.projectSlide !== button.dataset.projectSwitch;
+        });
+      });
+    });
+  });
 }
 
-function createCategoryCard(category, projects, index) {
-  const card = document.createElement("article");
-  card.className = "project-card";
-  const types = Array.isArray(category.projectTypes) ? category.projectTypes : [];
-  const typeItems = types.map((type) => `<li>${escapeHtml(type)}</li>`).join("");
-  const projectItems = projects
-    .map((project) => {
-      const client = project.client ? ` — ${escapeHtml(project.client)}` : "";
-      return `<li class="project-entry">${escapeHtml(project.title || "Projet")}${client}</li>`;
-    })
-    .join("");
-
-  card.innerHTML = `
-    ${createProjectVisual(category, projects, index + 1)}
-    <div class="project-content">
-      <p class="project-type">${escapeHtml(category.verb || "")}</p>
-      <h3>${escapeHtml(category.title || "Catégorie")}</h3>
-      <p>${escapeHtml(category.description || "")}</p>
-      ${typeItems ? `<ul aria-label="Types de projets">${typeItems}</ul>` : ""}
-      ${projectItems ? `<div class="category-projects"><strong>Réalisations</strong><ul>${projectItems}</ul></div>` : ""}
-    </div>`;
-  return card;
-}
-
-function activateProjectCards() {
+function activateClickableCards() {
   document.querySelectorAll(".project-card").forEach((card) => {
     const firstImage = card.querySelector(".glightbox");
     if (!firstImage) return;
@@ -160,53 +157,37 @@ function activateProjectCards() {
     card.tabIndex = 0;
     card.setAttribute("role", "button");
 
+    const visibleImage = () =>
+      card.querySelector("[data-project-slide]:not([hidden]) .glightbox") || firstImage;
+
     card.addEventListener("click", (event) => {
-      if (!event.target.closest(".glightbox")) firstImage.click();
+      if (event.target.closest("[data-project-switch], .glightbox")) return;
+      visibleImage().click();
     });
+
     card.addEventListener("keydown", (event) => {
-      if (event.key === "Enter" || event.key === " ") {
-        event.preventDefault();
-        firstImage.click();
-      }
+      if (event.key !== "Enter" && event.key !== " ") return;
+      event.preventDefault();
+      visibleImage().click();
     });
   });
 }
 
-async function loadProjects() {
-  const grid = document.querySelector("#projects-grid");
-  if (!grid) return;
-
+async function initializePortfolio() {
   try {
-    const files = await listContentFiles();
-    const [categories, projects] = await Promise.all([
-      Promise.all(files.categories.map(fetchJson)),
-      Promise.all(files.projects.map(fetchJson)),
-    ]);
-
-    categories.sort((first, second) =>
-      String(first.title || "").localeCompare(String(second.title || ""), "fr"),
-    );
-
-    grid.replaceChildren();
-    categories.forEach((category, index) => {
-      const categoryProjects = projects.filter(
-        (project) => project.classification?.category === category.title,
-      );
-      grid.appendChild(createCategoryCard(category, categoryProjects, index));
-    });
-
-    if (!categories.length) {
-      grid.innerHTML = '<p class="projects-loading">Aucune catégorie publiée.</p>';
-      return;
-    }
-
-    activateProjectCards();
-    GLightbox({ selector: ".glightbox", loop: true, touchNavigation: true, closeButton: true });
+    await Promise.all([loadPageContent(), loadCmsCollections()]);
   } catch (error) {
-    console.warn("Les projets n’ont pas pu être chargés.", error);
-    grid.innerHTML = '<p class="projects-loading">Les projets sont momentanément indisponibles.</p>';
+    console.warn("Une partie du contenu Decap n’a pas pu être chargée.", error);
   }
+
+  activateGroupedProjects();
+  activateClickableCards();
+  GLightbox({
+    selector: ".glightbox",
+    loop: true,
+    touchNavigation: true,
+    closeButton: true,
+  });
 }
 
-loadEditableContent();
-loadProjects();
+initializePortfolio();

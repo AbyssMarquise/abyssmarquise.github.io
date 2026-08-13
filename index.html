@@ -153,7 +153,346 @@
         </div>
 
         <div class="projects-grid" id="projects-grid">
-          <p class="projects-loading" role="status">Chargement des projets…</p>
+          <!-- Miniature #01 et Projets #1 : Identité visuelle -->
+          <article class="project-card" data-category-card="Identité visuelle">
+            <div class="project-visual visual-identity">
+              <span class="project-number">01</span>
+
+              <a
+                href="images/projet-01-1.webp"
+                class="glightbox project-main-image"
+                data-gallery="projet-01"
+                data-title="Réalisé en 2026 avec Canva, ce tableau d’identité visuelle présente l’univers graphique développé pour ma marque professionnelle."
+              >
+                <img
+                  src="images/projet-01-1.webp"
+                  alt="Identité visuelle de Camylle Michaud"
+                />
+              </a>
+
+              <a
+                href="images/projet-01-2.webp"
+                class="glightbox project-gallery-image"
+                data-gallery="projet-01"
+                data-title="Identité visuelle 2"
+                aria-label="Identité visuelle 2"
+              ></a>
+
+              <a
+                href="images/projet-01-3.webp"
+                class="glightbox project-gallery-image"
+                data-gallery="projet-01"
+                data-title="Identité visuelle 3"
+                aria-label="Identité visuelle 3"
+              ></a>
+            </div>
+
+            <div class="project-content">
+              <p class="project-type">Créer</p>
+              <h3>Identité visuelle</h3>
+              <p>
+                Donnez une personnalité unique à votre entreprise en créant une
+                image de marque cohérente et mémorable.
+              </p>
+
+              <ul aria-label="Outils et expertises">
+                <li>Logo</li>
+                <li>Palette de couleurs</li>
+                <li>Typographie</li>
+                <li>Monogramme</li>
+                <li>Guide de marque</li>
+              </ul>
+            </div>
+          </article>
+
+          <!-- Miniature #02 : Supports de communication (miniature à venir) -->
+          <article class="project-card" data-category-card="Supports de communication">
+            <div class="project-visual visual-campaign empty-project-visual">
+              <span class="project-number">02</span>
+            </div>
+
+            <div class="project-content">
+              <p class="project-type">Déployer</p>
+              <h3>Supports de communication</h3>
+              <p>
+                Déclinez votre identité sur des supports imprimés et numériques
+                dans le but de communiquer une information ou représenter votre
+                entreprise.
+              </p>
+              <ul aria-label="Outils et expertises">
+                <li>Carte professionnelle</li>
+                <li>Signature courriel</li>
+                <li>Brochure et dépliant</li>
+                <li>Menu</li>
+                <li>Emballage et étiquette</li>
+                <li>Présentation et document</li>
+              </ul>
+            </div>
+          </article>
+
+          <!-- Projet #03 : Publicités et campagnes -->
+          <article
+            class="project-card grouped-project-card"
+            data-grouped-project
+            data-category-card="Publicités et campagnes"
+            aria-live="polite"
+          >
+            <!-- Miniature 03-01 : affiches promotionnelles -->
+            <div class="project-slide" data-project-slide="03-01">
+              <div class="project-visual visual-campaign">
+                <span class="project-number">03</span>
+
+                <!-- Les deux flèches affichent l'autre miniature -->
+                <button
+                  class="project-switch project-switch--previous"
+                  type="button"
+                  data-project-switch="03-02"
+                  aria-label="Afficher la miniature suivante"
+                >
+                  <svg aria-hidden="true" viewBox="0 0 24 24">
+                    <path d="m15 18-6-6 6-6"></path>
+                  </svg>
+                </button>
+
+                <button
+                  class="project-switch project-switch--next"
+                  type="button"
+                  data-project-switch="03-02"
+                  aria-label="Afficher la miniature suivante"
+                >
+                  <svg aria-hidden="true" viewBox="0 0 24 24">
+                    <path d="m9 6 6 6-6 6"></path>
+                  </svg>
+                </button>
+
+                <div
+                  class="poster-shadow poster-shadow-one"
+                  aria-hidden="true"
+                ></div>
+
+                <a
+                  href="images/projet-03-1-1.webp"
+                  class="glightbox poster poster-one"
+                  data-gallery="projet-03-01"
+                  data-description="Affiche destinée à promouvoir l’abonnement à Qui fait Quoi."
+                  aria-label="Voir l’affiche d’abonnement à Qui fait Quoi"
+                >
+                  <img
+                    src="images/projet-03-1-1.webp"
+                    alt="Affiche promotionnelle pour l’abonnement à Qui fait Quoi"
+                  />
+                </a>
+
+                <div
+                  class="poster-shadow poster-shadow-two"
+                  aria-hidden="true"
+                ></div>
+
+                <a
+                  href="images/projet-03-1-2.webp"
+                  class="glightbox poster poster-two"
+                  data-gallery="projet-03-01"
+                  data-description="Affiche destinée à promouvoir l’abonnement au Lien MULTIMÉDIA."
+                  aria-label="Voir l’affiche d’abonnement au Lien MULTIMÉDIA"
+                >
+                  <img
+                    src="images/projet-03-1-2.webp"
+                    alt="Affiche promotionnelle pour l’abonnement au Lien MULTIMÉDIA"
+                  />
+                </a>
+              </div>
+            </div>
+
+            <!-- Miniature 03-02 : publicités Web -->
+            <div class="project-slide" data-project-slide="03-02" hidden>
+              <div class="project-visual visual-social">
+                <span class="project-number">03</span>
+
+                <!-- Les deux flèches ramènent à la miniature 03-01 -->
+                <button
+                  class="project-switch project-switch--previous"
+                  type="button"
+                  data-project-switch="03-01"
+                  aria-label="Afficher la miniature précédente"
+                >
+                  <svg aria-hidden="true" viewBox="0 0 24 24">
+                    <path d="m15 18-6-6 6-6"></path>
+                  </svg>
+                </button>
+
+                <button
+                  class="project-switch project-switch--next"
+                  type="button"
+                  data-project-switch="03-01"
+                  aria-label="Afficher la miniature précédente"
+                >
+                  <svg aria-hidden="true" viewBox="0 0 24 24">
+                    <path d="m9 6 6 6-6 6"></path>
+                  </svg>
+                </button>
+
+                <div class="browser-window">
+                  <div class="browser-bar">
+                    <div class="browser-controls" aria-hidden="true">
+                      <span></span>
+                      <span></span>
+                      <span></span>
+                    </div>
+
+                    <div class="browser-address">
+                      <span class="browser-lock" aria-hidden="true">●</span>
+                      <span>siteweb-exemple.ca/article</span>
+                    </div>
+                  </div>
+
+                  <div class="browser-page">
+                    <div class="browser-site-header">
+                      <div class="browser-logo">MÉDIAS</div>
+
+                      <div class="browser-navigation" aria-hidden="true">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                      </div>
+                    </div>
+
+                    <div class="browser-article">
+                      <p class="browser-category">Actualités numériques</p>
+
+                      <div class="browser-article-title" aria-hidden="true">
+                        <span></span>
+                        <span></span>
+                      </div>
+
+                      <div class="browser-meta" aria-hidden="true">
+                        <span class="browser-avatar"></span>
+                      </div>
+
+                      <div
+                        class="browser-paragraph browser-paragraph-top"
+                        aria-hidden="true"
+                      >
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                      </div>
+
+                      <div class="browser-ads">
+                        <a
+                          href="images/projet-03-2-1.webp"
+                          class="glightbox browser-ad"
+                          data-gallery="projet-03-02"
+                          data-description="Publicité Web conçue pour promouvoir le Guide de l’industrie numérique 2026."
+                          aria-label="Voir la publicité du Guide de l’industrie numérique 2026"
+                        >
+                          <img
+                            src="images/projet-03-2-1.webp"
+                            alt="Publicité Web pour le Guide de l’industrie numérique 2026"
+                          />
+                        </a>
+
+                        <a
+                          href="images/projet-03-2-2.webp"
+                          class="glightbox browser-ad"
+                          data-gallery="projet-03-02"
+                          data-description="Publicité Web conçue pour promouvoir le Guide annuel Qui fait Quoi 2026."
+                          aria-label="Voir la publicité du Guide annuel Qui fait Quoi 2026"
+                        >
+                          <img
+                            src="images/projet-03-2-2.webp"
+                            alt="Publicité Web pour le Guide annuel Qui fait Quoi 2026"
+                          />
+                        </a>
+                      </div>
+
+                      <div class="browser-article-title" aria-hidden="true">
+                        <span></span>
+                        <span></span>
+                      </div>
+
+                      <div class="browser-meta" aria-hidden="true">
+                        <span class="browser-avatar"></span>
+                      </div>
+
+                      <div
+                        class="browser-paragraph browser-paragraph-top"
+                        aria-hidden="true"
+                      >
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Ce texte reste fixe pendant le changement de miniature -->
+            <div class="project-content">
+              <p class="project-type">Promouvoir</p>
+
+              <h3>Publicités et campagnes</h3>
+
+              <p>
+                Je conçois des campagnes pour promouvoir vos produits et
+                services sur les réseaux sociaux, sur le Web et dans les médias
+                imprimés afin d’attirer l’attention, de convaincre et de
+                favoriser les ventes.
+              </p>
+
+              <ul aria-label="Outils et expertises">
+                <li>Courriel</li>
+                <li>Réseaux sociaux</li>
+                <li>Affiche publicitaire</li>
+                <li>Multiformats</li>
+              </ul>
+            </div>
+          </article>
+
+          <!-- Miniature #04 : Design éditorial -->
+          <article class="project-card" data-category-card="Design éditorial">
+            <div class="project-visual visual-data">
+              <span class="project-number">04</span>
+
+              <a
+                href="images/projet-04-1.webp"
+                class="glightbox project-main-image"
+                data-gallery="projet-05"
+                data-title="eBooks 1"
+              >
+                <img src="images/projet-04-1.webp" alt="eBooks 1" />
+              </a>
+
+              <a
+                href="images/projet-04-2.webp"
+                class="glightbox project-gallery-image"
+                data-gallery="projet-05"
+                data-title="Annuaire - couverture et pages intérieures"
+                aria-label="Voir le deuxième visuel du projet"
+              ></a>
+            </div>
+
+            <div class="project-content">
+              <p class="project-type">Publier</p>
+              <h3>Design éditorial</h3>
+              <p>
+                Structurez et mettez en page des publications longues et
+                complexes afin d'offrir une lecture claire, harmonieuse et
+                professionnelle.
+              </p>
+
+              <ul aria-label="Outils et expertises">
+                <li>Guide</li>
+                <li>Catalogue</li>
+                <li>Magazine</li>
+                <li>Revue</li>
+                <li>Livre</li>
+                <li>Rapport</li>
+                <li>ebook</li>
+              </ul>
+            </div>
+          </article>
         </div>
       </section>
 
@@ -232,6 +571,6 @@
       </svg>
     </a>
     <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
-    <script src="script.js?v=20260813-1"></script>
+    <script src="script.js?v=20260813-2"></script>
   </body>
 </html>
