@@ -39,3 +39,24 @@ collections:
           - { label: "Texte contact", name: contactCopy, widget: text }
           - { label: Courriel, name: email, widget: string }
           - { label: Lieu, name: location, widget: string }
+
+  - name: projets
+    label: Projets
+    folder: content/projets
+    create: true
+    slug: "{{slug}}"
+    extension: json
+    format: json
+    fields:
+      - { label: Titre, name: title, widget: string }
+      - {
+          label: Catégorie,
+          name: category,
+          widget: select,
+          options:
+            ["Identité visuelle", "Publicité", "Design éditorial", "Web"],
+        }
+      - { label: Description, name: description, widget: text }
+      - { label: Image principale, name: image, widget: image }
+      - { label: Année, name: year, widget: string }
+      - { label: Compétences, name: skills, widget: list }
