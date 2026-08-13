@@ -40,25 +40,28 @@ collections:
           - { label: Courriel, name: email, widget: string }
           - { label: Lieu, name: location, widget: string }
 
-  - name: categories
+    - name: categories
     label: Catégories
-    label_singular: Catégorie
-    folder: content
-    file: content/categories.json
-    create: true
-    slug: "{{slug}}"
-    extension: json
-    format: json
-    fields:
-      - { label: Titre, name: title, widget: string }
-      - { label: Description, name: description, widget: text }
-      - label: Types de projets
-        name: projectTypes
-        widget: list
-        field:
-          label: Type de projet
-          name: projectType
-          widget: string
+    files:
+      - name: categories
+        label: Gérer les catégories
+        file: content/categories.json
+        format: json
+        fields:
+          - label: Catégories
+            name: categories
+            widget: list
+            summary: "{{fields.title}}"
+            fields:
+              - { label: Titre, name: title, widget: string }
+              - { label: Description, name: description, widget: text }
+              - label: Types de projets
+                name: projectTypes
+                widget: list
+                field:
+                  label: Type de projet
+                  name: projectType
+                  widget: string
 
   - name: projets
     label: Projets

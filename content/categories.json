@@ -1,4 +1,4 @@
-[
+{ "categories": [
   {
     "title": "Identité visuelle",
     "description": "Projets de création d'identité visuelle",
@@ -9,5 +9,25 @@
       "Monogramme",
       "Guide de marque"
     ]
+  },
+  {
+    "title": "Publicité",
+    "description": "Projets de création de publicités et campagnes",
+    "projectTypes": [
+      "Courriel",
+      "Réseaux sociaux",
+      "Affiche publicitaire",
+      "Multiformats"
+    ]
+  },
+  {
+    "title": "Web",
+    "description": "Projets de création de sites Web et applications",
+    "projectTypes": [
+      "Site Web",
+      "Application Web",
+      "Application mobile"
+    ]
   }
 ]
+}
