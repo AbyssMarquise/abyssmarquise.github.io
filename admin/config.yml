@@ -19,6 +19,13 @@ collections:
         file: content/accueil.json
         format: json
         fields:
+          - { label: Titre du site, name: siteTitle, widget: string }
+          - { label: Navigation — À propos, name: navAbout, widget: string }
+          - { label: Navigation — Projets, name: navProjects, widget: string }
+          - { label: Navigation — Contact, name: navContact, widget: string }
+          - { label: Libellé du menu mobile, name: menuLabel, widget: string }
+          - { label: Bouton vers les projets, name: projectsCta, widget: string }
+          - { label: Mot dans la composition visuelle, name: artAccent, widget: string }
           - label: Année / mention
             name: portfolioYear
             widget: string
@@ -49,6 +56,7 @@ collections:
         file: content/a-propos.json
         format: json
         fields:
+          - { label: Petit titre de section, name: aboutLabel, widget: string }
           - label: Titre
             name: aboutTitle
             widget: string
@@ -66,11 +74,17 @@ collections:
             name: aboutThree
             widget: text
 
+          - label: Compétences principales
+            name: skills
+            widget: list
+            field: { label: Compétence, name: skill, widget: string }
+
       - name: presentation-projets
         label: Présentation des projets
         file: content/presentation-projets.json
         format: json
         fields:
+          - { label: Petit titre de section, name: projectsLabel, widget: string }
           - label: Titre principal
             name: projectsTitle
             widget: string
@@ -86,6 +100,7 @@ collections:
         file: content/contact.json
         format: json
         fields:
+          - { label: Petit titre de section, name: contactLabel, widget: string }
           - label: Titre
             name: contactTitle
             widget: string
@@ -150,10 +165,21 @@ collections:
         name: date
         widget: datetime
         format: YYYY-MM-DD
+        required: false
 
       - label: Catégorie et type de projet
         name: classification
         widget: category_project_type
+
+      - label: Modèle d’affichage
+        name: layout
+        widget: select
+        default: single
+        options:
+          - { label: Visuel simple, value: single }
+          - { label: Deux affiches superposées, value: posters }
+          - { label: Publicités dans un navigateur, value: browser }
+          - { label: Support de communication, value: communication }
 
       - label: Domaine
         name: domain
@@ -175,7 +201,23 @@ collections:
       - label: Outils
         name: tools
         widget: list
+        required: false
         field:
           label: Outil
           name: tool
           widget: string
+
+      - label: Adresse affichée dans le navigateur
+        name: browserAddress
+        widget: string
+        required: false
+
+      - label: Nom du média dans le navigateur
+        name: browserLogo
+        widget: string
+        required: false
+
+      - label: Rubrique affichée dans le navigateur
+        name: browserCategory
+        widget: string
+        required: false

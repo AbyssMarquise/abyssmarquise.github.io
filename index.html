@@ -5,41 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="Portfolio de Camylle Michaud" />
     <meta name="theme-color" content="#066460" />
-    <title>Camylle Michaud</title>
+    <title></title>
     <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
     <link rel="stylesheet" href="./style.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css"
-    />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" />
   </head>
   <body>
     <main id="haut">
       <header class="site-header">
         <a class="wordmark" href="#haut" aria-label="Retour à l’accueil">
-          <img
-            src="images/logo-secondaire-camylle-michaud.svg"
-            alt="Camylle Michaud"
-            class="wordmark-logo"
-          />
-
-          <span data-content="portfolioYear">Portfolio 2026</span>
+          <img src="images/logo-secondaire-camylle-michaud.svg" alt="Camylle Michaud" class="wordmark-logo" />
+          <span data-content="portfolioYear"></span>
         </a>
-
         <nav class="desktop-nav" aria-label="Navigation principale">
-          <a href="#a-propos">À propos</a>
-          <a href="#projets">Projets</a>
-          <!-- <a href="#travaillons-ensemble">Forfaits</a>-->
-          <a href="#contact">Contact</a>
+          <a href="#a-propos" data-content="navAbout"></a><a href="#projets" data-content="navProjects"></a><a href="#contact" data-content="navContact"></a>
         </nav>
-
         <details class="mobile-menu">
-          <summary aria-label="Ouvrir le menu">Menu</summary>
+          <summary aria-label="Ouvrir le menu" data-content="menuLabel"></summary>
           <nav aria-label="Navigation mobile">
-            <a href="#a-propos">À propos</a>
-            <a href="#projets">Projets</a>
-            <!--   <a href="#travaillons-ensemble">Forfaits</a>-->
-            <a href="#contact">Contact</a>
+            <a href="#a-propos" data-content="navAbout"></a><a href="#projets" data-content="navProjects"></a><a href="#contact" data-content="navContact"></a>
           </nav>
         </details>
       </header>
@@ -47,97 +31,31 @@
       <section class="about-section">
         <div class="hero">
           <div class="section-index" aria-hidden="true"><span></span></div>
-
           <div class="hero-copy">
-            <p class="eyebrow" data-content="role">| Chargée de projets</p>
-            <h1 data-content="name">Camylle<br />Michaud</h1>
+            <p class="eyebrow" data-content="role"></p>
+            <h1 data-content="name"></h1>
             <div class="title-rule" aria-hidden="true"></div>
-            <h2 data-content="headline">
-              Communications, marketing numérique et contenu Web
-            </h2>
-            <p class="intro" data-content="heroIntroOne">
-              Chaque marque raconte une histoire. Lorsqu’elle est portée par une
-              identité cohérente, elle affirme sa personnalité, inspire
-              confiance et crée un lien durable avec son public.
-            </p>
-            <p class="intro" data-content="heroIntroTwo">
-              J’aide les organisations à bâtir cette identité en réunissant
-              stratégie, graphisme et rédaction. De l’image de marque aux
-              expériences numériques, je conçois des solutions qui transmettent
-              le bon message, au bon public, au bon moment.
-            </p>
+            <h2 data-content="headline"></h2>
+            <p class="intro" data-content="heroIntroOne"></p>
+            <p class="intro" data-content="heroIntroTwo"></p>
             <div class="hero-actions">
-              <a class="button button-primary" href="#projets">
-                Découvrir mes projets <span aria-hidden="true">→</span>
-              </a>
-              <!--   <a class="text-link" href="#travaillons-ensemble">Forfaits</a>-->
+              <a class="button button-primary" href="#projets"><span data-content="projectsCta"></span> <span aria-hidden="true">→</span></a>
             </div>
           </div>
-
-          <div
-            class="hero-art"
-            role="img"
-            aria-label="Collage éditorial ivoire avec photographie de montagne, fleurs séchées et accents vert sarcelle"
-          >
-            <div class="art-frame art-frame-main">
-              <div class="image-placeholder"></div>
-              <div class="paper-grid"></div>
-            </div>
-            <div class="art-card art-card-chart" aria-hidden="true">
-              <div class="chart-circle"></div>
-              <div class="chart-lines"><i></i><i></i><i></i></div>
-            </div>
-            <div class="art-card art-card-accent" aria-hidden="true">
-              <span>Création</span>
-              <div class="accent-arch"></div>
-            </div>
+          <div class="hero-art" role="img" aria-label="Composition éditoriale">
+            <div class="art-frame art-frame-main"><div class="image-placeholder"></div><div class="paper-grid"></div></div>
+            <div class="art-card art-card-chart" aria-hidden="true"><div class="chart-circle"></div><div class="chart-lines"><i></i><i></i><i></i></div></div>
+            <div class="art-card art-card-accent" aria-hidden="true"><span data-content="artAccent"></span><div class="accent-arch"></div></div>
           </div>
         </div>
+
         <div class="about-panel" id="a-propos">
-          <div class="about-heading">
-            <p class="section-label">À propos</p>
-            <h2 data-content="aboutTitle">
-              Créer du sens,<br />pas seulement du beau.
-            </h2>
-          </div>
-
+          <div class="about-heading"><p class="section-label" data-content="aboutLabel"></p><h2 data-content="aboutTitle"></h2></div>
           <div class="about-content">
-            <div class="portrait-photo">
-              <img
-                src="images/camylle-portrait.webp"
-                alt="Portrait de Camylle Michaud"
-              />
-            </div>
-
+            <div class="portrait-photo"><img src="images/camylle-portrait.webp" alt="Portrait de Camylle Michaud" /></div>
             <div class="about-copy">
-              <p data-content="aboutOne">
-                Depuis toujours, je suis attirée par les univers qui racontent
-                une histoire. La musique, la littérature, le cinéma et la nature
-                nourrissent mon regard et influencent naturellement ma façon de
-                créer. J'aime les compositions épurées, les typographies
-                élégantes et les palettes naturelles.
-              </p>
-              <p data-content="aboutTwo">
-                Mon parcours en conception de bases de données m'a apporté une
-                approche structurée, ainsi que des compétences en gestion de
-                projet, en développement Web et en analyse. Aujourd'hui, cette
-                rigueur complète ma sensibilité créative.
-              </p>
-              <p data-content="aboutThree">
-                Je suis particulièrement intéressée par les projets issus des
-                milieux créatifs, culturels, artistiques, du bien-être, de la
-                beauté, du luxe, de la gastronomie et de l'événementiel. Je
-                crois que les plus belles identités sont celles qui parviennent
-                à conjuguer raffinement, authenticité et intemporalité. C'est
-                cette vision qui inspire chacune de mes créations.
-              </p>
-
-              <div class="skill-list" aria-label="Compétences principales">
-                <span>Infographie</span>
-                <span>Rédaction</span>
-                <span>Site Web</span>
-                <span>Médias sociaux</span>
-              </div>
+              <p data-content="aboutOne"></p><p data-content="aboutTwo"></p><p data-content="aboutThree"></p>
+              <div class="skill-list" data-list="skills" aria-label="Compétences principales"></div>
             </div>
           </div>
         </div>
@@ -145,432 +63,52 @@
 
       <section class="projects-section" id="projets">
         <div class="section-heading">
-          <p class="section-label light">Projets</p>
-          <h2 data-content="projectsTitle">
-            Ma sélection de<br />projets et d’expertises
-          </h2>
+          <p class="section-label light" data-content="projectsLabel"></p>
+          <h2 data-content="projectsTitle"></h2>
           <p data-content="projectsIntroduction" hidden></p>
         </div>
-
-        <div class="projects-grid" id="projects-grid">
-          <!-- Miniature #01 et Projets #1 : Identité visuelle -->
-          <article class="project-card" data-category-card="Identité visuelle">
-            <div class="project-visual visual-identity">
-              <span class="project-number">01</span>
-
-              <a
-                href="images/projet-01-1.webp"
-                class="glightbox project-main-image"
-                data-gallery="projet-01"
-                data-title="Réalisé en 2026 avec Canva, ce tableau d’identité visuelle présente l’univers graphique développé pour ma marque professionnelle."
-              >
-                <img
-                  src="images/projet-01-1.webp"
-                  alt="Identité visuelle de Camylle Michaud"
-                />
-              </a>
-
-              <a
-                href="images/projet-01-2.webp"
-                class="glightbox project-gallery-image"
-                data-gallery="projet-01"
-                data-title="Identité visuelle 2"
-                aria-label="Identité visuelle 2"
-              ></a>
-
-              <a
-                href="images/projet-01-3.webp"
-                class="glightbox project-gallery-image"
-                data-gallery="projet-01"
-                data-title="Identité visuelle 3"
-                aria-label="Identité visuelle 3"
-              ></a>
-            </div>
-
-            <div class="project-content">
-              <p class="project-type">Créer</p>
-              <h3>Identité visuelle</h3>
-              <p>
-                Donnez une personnalité unique à votre entreprise en créant une
-                image de marque cohérente et mémorable.
-              </p>
-
-              <ul aria-label="Outils et expertises">
-                <li>Logo</li>
-                <li>Palette de couleurs</li>
-                <li>Typographie</li>
-                <li>Monogramme</li>
-                <li>Guide de marque</li>
-              </ul>
-            </div>
-          </article>
-
-          <!-- Miniature #02 : Supports de communication (miniature à venir) -->
-          <article class="project-card" data-category-card="Supports de communication">
-            <div class="project-visual visual-campaign empty-project-visual">
-              <span class="project-number">02</span>
-            </div>
-
-            <div class="project-content">
-              <p class="project-type">Déployer</p>
-              <h3>Supports de communication</h3>
-              <p>
-                Déclinez votre identité sur des supports imprimés et numériques
-                dans le but de communiquer une information ou représenter votre
-                entreprise.
-              </p>
-              <ul aria-label="Outils et expertises">
-                <li>Carte professionnelle</li>
-                <li>Signature courriel</li>
-                <li>Brochure et dépliant</li>
-                <li>Menu</li>
-                <li>Emballage et étiquette</li>
-                <li>Présentation et document</li>
-              </ul>
-            </div>
-          </article>
-
-          <!-- Projet #03 : Publicités et campagnes -->
-          <article
-            class="project-card grouped-project-card"
-            data-grouped-project
-            data-category-card="Publicités et campagnes"
-            aria-live="polite"
-          >
-            <!-- Miniature 03-01 : affiches promotionnelles -->
-            <div class="project-slide" data-project-slide="03-01">
-              <div class="project-visual visual-campaign">
-                <span class="project-number">03</span>
-
-                <!-- Les deux flèches affichent l'autre miniature -->
-                <button
-                  class="project-switch project-switch--previous"
-                  type="button"
-                  data-project-switch="03-02"
-                  aria-label="Afficher la miniature suivante"
-                >
-                  <svg aria-hidden="true" viewBox="0 0 24 24">
-                    <path d="m15 18-6-6 6-6"></path>
-                  </svg>
-                </button>
-
-                <button
-                  class="project-switch project-switch--next"
-                  type="button"
-                  data-project-switch="03-02"
-                  aria-label="Afficher la miniature suivante"
-                >
-                  <svg aria-hidden="true" viewBox="0 0 24 24">
-                    <path d="m9 6 6 6-6 6"></path>
-                  </svg>
-                </button>
-
-                <div
-                  class="poster-shadow poster-shadow-one"
-                  aria-hidden="true"
-                ></div>
-
-                <a
-                  href="images/projet-03-1-1.webp"
-                  class="glightbox poster poster-one"
-                  data-gallery="projet-03-01"
-                  data-description="Affiche destinée à promouvoir l’abonnement à Qui fait Quoi."
-                  aria-label="Voir l’affiche d’abonnement à Qui fait Quoi"
-                >
-                  <img
-                    src="images/projet-03-1-1.webp"
-                    alt="Affiche promotionnelle pour l’abonnement à Qui fait Quoi"
-                  />
-                </a>
-
-                <div
-                  class="poster-shadow poster-shadow-two"
-                  aria-hidden="true"
-                ></div>
-
-                <a
-                  href="images/projet-03-1-2.webp"
-                  class="glightbox poster poster-two"
-                  data-gallery="projet-03-01"
-                  data-description="Affiche destinée à promouvoir l’abonnement au Lien MULTIMÉDIA."
-                  aria-label="Voir l’affiche d’abonnement au Lien MULTIMÉDIA"
-                >
-                  <img
-                    src="images/projet-03-1-2.webp"
-                    alt="Affiche promotionnelle pour l’abonnement au Lien MULTIMÉDIA"
-                  />
-                </a>
-              </div>
-            </div>
-
-            <!-- Miniature 03-02 : publicités Web -->
-            <div class="project-slide" data-project-slide="03-02" hidden>
-              <div class="project-visual visual-social">
-                <span class="project-number">03</span>
-
-                <!-- Les deux flèches ramènent à la miniature 03-01 -->
-                <button
-                  class="project-switch project-switch--previous"
-                  type="button"
-                  data-project-switch="03-01"
-                  aria-label="Afficher la miniature précédente"
-                >
-                  <svg aria-hidden="true" viewBox="0 0 24 24">
-                    <path d="m15 18-6-6 6-6"></path>
-                  </svg>
-                </button>
-
-                <button
-                  class="project-switch project-switch--next"
-                  type="button"
-                  data-project-switch="03-01"
-                  aria-label="Afficher la miniature précédente"
-                >
-                  <svg aria-hidden="true" viewBox="0 0 24 24">
-                    <path d="m9 6 6 6-6 6"></path>
-                  </svg>
-                </button>
-
-                <div class="browser-window">
-                  <div class="browser-bar">
-                    <div class="browser-controls" aria-hidden="true">
-                      <span></span>
-                      <span></span>
-                      <span></span>
-                    </div>
-
-                    <div class="browser-address">
-                      <span class="browser-lock" aria-hidden="true">●</span>
-                      <span>siteweb-exemple.ca/article</span>
-                    </div>
-                  </div>
-
-                  <div class="browser-page">
-                    <div class="browser-site-header">
-                      <div class="browser-logo">MÉDIAS</div>
-
-                      <div class="browser-navigation" aria-hidden="true">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                      </div>
-                    </div>
-
-                    <div class="browser-article">
-                      <p class="browser-category">Actualités numériques</p>
-
-                      <div class="browser-article-title" aria-hidden="true">
-                        <span></span>
-                        <span></span>
-                      </div>
-
-                      <div class="browser-meta" aria-hidden="true">
-                        <span class="browser-avatar"></span>
-                      </div>
-
-                      <div
-                        class="browser-paragraph browser-paragraph-top"
-                        aria-hidden="true"
-                      >
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                      </div>
-
-                      <div class="browser-ads">
-                        <a
-                          href="images/projet-03-2-1.webp"
-                          class="glightbox browser-ad"
-                          data-gallery="projet-03-02"
-                          data-description="Publicité Web conçue pour promouvoir le Guide de l’industrie numérique 2026."
-                          aria-label="Voir la publicité du Guide de l’industrie numérique 2026"
-                        >
-                          <img
-                            src="images/projet-03-2-1.webp"
-                            alt="Publicité Web pour le Guide de l’industrie numérique 2026"
-                          />
-                        </a>
-
-                        <a
-                          href="images/projet-03-2-2.webp"
-                          class="glightbox browser-ad"
-                          data-gallery="projet-03-02"
-                          data-description="Publicité Web conçue pour promouvoir le Guide annuel Qui fait Quoi 2026."
-                          aria-label="Voir la publicité du Guide annuel Qui fait Quoi 2026"
-                        >
-                          <img
-                            src="images/projet-03-2-2.webp"
-                            alt="Publicité Web pour le Guide annuel Qui fait Quoi 2026"
-                          />
-                        </a>
-                      </div>
-
-                      <div class="browser-article-title" aria-hidden="true">
-                        <span></span>
-                        <span></span>
-                      </div>
-
-                      <div class="browser-meta" aria-hidden="true">
-                        <span class="browser-avatar"></span>
-                      </div>
-
-                      <div
-                        class="browser-paragraph browser-paragraph-top"
-                        aria-hidden="true"
-                      >
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Ce texte reste fixe pendant le changement de miniature -->
-            <div class="project-content">
-              <p class="project-type">Promouvoir</p>
-
-              <h3>Publicités et campagnes</h3>
-
-              <p>
-                Je conçois des campagnes pour promouvoir vos produits et
-                services sur les réseaux sociaux, sur le Web et dans les médias
-                imprimés afin d’attirer l’attention, de convaincre et de
-                favoriser les ventes.
-              </p>
-
-              <ul aria-label="Outils et expertises">
-                <li>Courriel</li>
-                <li>Réseaux sociaux</li>
-                <li>Affiche publicitaire</li>
-                <li>Multiformats</li>
-              </ul>
-            </div>
-          </article>
-
-          <!-- Miniature #04 : Design éditorial -->
-          <article class="project-card" data-category-card="Design éditorial">
-            <div class="project-visual visual-data">
-              <span class="project-number">04</span>
-
-              <a
-                href="images/projet-04-1.webp"
-                class="glightbox project-main-image"
-                data-gallery="projet-05"
-                data-title="eBooks 1"
-              >
-                <img src="images/projet-04-1.webp" alt="eBooks 1" />
-              </a>
-
-              <a
-                href="images/projet-04-2.webp"
-                class="glightbox project-gallery-image"
-                data-gallery="projet-05"
-                data-title="Annuaire - couverture et pages intérieures"
-                aria-label="Voir le deuxième visuel du projet"
-              ></a>
-            </div>
-
-            <div class="project-content">
-              <p class="project-type">Publier</p>
-              <h3>Design éditorial</h3>
-              <p>
-                Structurez et mettez en page des publications longues et
-                complexes afin d'offrir une lecture claire, harmonieuse et
-                professionnelle.
-              </p>
-
-              <ul aria-label="Outils et expertises">
-                <li>Guide</li>
-                <li>Catalogue</li>
-                <li>Magazine</li>
-                <li>Revue</li>
-                <li>Livre</li>
-                <li>Rapport</li>
-                <li>ebook</li>
-              </ul>
-            </div>
-          </article>
-        </div>
+        <div class="projects-grid" id="projects-grid" aria-live="polite"></div>
       </section>
-
-      <!-- <section class="work-section" id="travaillons-ensemble">
-        <div class="work-intro">
-          <p class="section-label">Travaillons ensemble</p>
-          <h2>Un format de collaboration adapté à votre besoin.</h2>
-          <p>
-            Chaque mandat commence par une courte discussion. Les livrables, le
-            calendrier et le forfait sont ensuite définis clairement selon la
-            portée du projet.
-          </p>
-        </div>
-
-        <div class="offers-grid">
-          <article class="offer-card">
-            <span>FORFAIT A</span>
-            <h3>Coup de pouce créatif</h3>
-            <p>Un besoin précis : Identitéde marque, publicité web.</p>
-            <strong>Mandat ponctuel</strong>
-          </article>
-          <article class="offer-card">
-            <span>FORFAIT B</span>
-            <h3>Présence numérique</h3>
-            <p>
-              Un ensemble cohérent de contenus pour alimenter le Web, les médias
-              sociaux ou une campagne.
-            </p>
-            <strong>Forfait de contenus</strong>
-          </article>
-          <article class="offer-card">
-            <span>FORFAIT C</span>
-            <h3>Projet sur mesure</h3>
-            <p>
-              Une collaboration adaptée à votre organisation, de la structure de
-              l’information à la diffusion.
-            </p>
-            <strong>Estimation personnalisée</strong>
-          </article>
-        </div>
-
-        <a class="button button-outline" href="#contact"
-          >Parler de votre projet <span aria-hidden="true">→</span></a
-        >
-      </section>-->
 
       <section class="contact-section" id="contact">
         <div class="contact-index" aria-hidden="true"></div>
-        <p class="section-label light">Contact</p>
-        <h2 data-content="contactTitle">
-          Une idée en tête?<br />Écrivons la suite.
-        </h2>
-        <p class="contact-copy" data-content="contactCopy">
-          Je suis ouverte aux occasions en communication, en marketing numérique
-          et en infographie, ainsi qu’aux collaborations ponctuelles.
-        </p>
-        <a
-          class="contact-email"
-          data-email
-          href="mailto:camyllemichaud@outlook.com"
-          >camyllemichaud@outlook.com <span aria-hidden="true">↗</span></a
-        >
-        <div class="contact-meta">
-          <span data-content="location">Montréal, Québec</span
-          ><span data-content="portfolioYear">Portfolio 2026</span>
-        </div>
+        <p class="section-label light" data-content="contactLabel"></p>
+        <h2 data-content="contactTitle"></h2>
+        <p class="contact-copy" data-content="contactCopy"></p>
+        <a class="contact-email" data-email href=""><span aria-hidden="true">↗</span></a>
+        <div class="contact-meta"><span data-content="location"></span><span data-content="portfolioYear"></span></div>
       </section>
     </main>
-    <a
-      class="scroll-cue"
-      href="#haut"
-      aria-label="Retourner en haut de la page"
-    >
-      <svg aria-hidden="true" viewBox="0 0 24 24">
-        <path d="M12 19V5M6.5 10.5 12 5l5.5 5.5"></path>
-      </svg>
+
+    <a class="scroll-cue" href="#haut" aria-label="Retourner en haut de la page">
+      <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 19V5M6.5 10.5 12 5l5.5 5.5"></path></svg>
     </a>
+
+    <!-- Modèles structurels : aucune donnée de contenu n’est inscrite ici. -->
+    <template id="category-card-template">
+      <article class="project-card grouped-project-card" data-grouped-project aria-live="polite">
+        <div class="project-slides"></div>
+        <div class="project-content"><p class="project-type"></p><h3></h3><p class="project-description"></p><ul aria-label="Types de projets"></ul></div>
+      </article>
+    </template>
+
+    <template id="single-visual-template">
+      <div class="project-slide"><div class="project-visual visual-identity"><span class="project-number"></span><div class="project-navigation"></div><div class="project-assets"></div></div></div>
+    </template>
+
+    <template id="posters-visual-template">
+      <div class="project-slide"><div class="project-visual visual-campaign"><span class="project-number"></span><div class="project-navigation"></div><div class="poster-shadow poster-shadow-one" aria-hidden="true"></div><div class="poster-shadow poster-shadow-two" aria-hidden="true"></div><div class="project-assets"></div></div></div>
+    </template>
+
+    <template id="communication-visual-template">
+      <div class="project-slide"><div class="project-visual visual-campaign"><span class="project-number"></span><div class="project-navigation"></div><div class="project-assets"></div></div></div>
+    </template>
+
+    <template id="browser-visual-template">
+      <div class="project-slide"><div class="project-visual visual-social"><span class="project-number"></span><div class="project-navigation"></div><div class="browser-window"><div class="browser-bar"><div class="browser-controls" aria-hidden="true"><span></span><span></span><span></span></div><div class="browser-address"><span class="browser-lock" aria-hidden="true">●</span><span></span></div></div><div class="browser-page"><div class="browser-site-header"><div class="browser-logo"></div><div class="browser-navigation" aria-hidden="true"><span></span><span></span><span></span></div></div><div class="browser-article"><p class="browser-category"></p><div class="browser-article-title" aria-hidden="true"><span></span><span></span></div><div class="browser-meta" aria-hidden="true"><span class="browser-avatar"></span></div><div class="browser-paragraph browser-paragraph-top" aria-hidden="true"><span></span><span></span><span></span></div><div class="browser-ads project-assets"></div></div></div></div></div></div>
+    </template>
+
     <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
-    <script src="script.js?v=20260813-2"></script>
+    <script src="script.js?v=20260813-3"></script>
   </body>
 </html>
