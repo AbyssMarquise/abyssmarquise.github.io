@@ -9,53 +9,99 @@ media_folder: images
 public_folder: /images
 
 collections:
-  - name: contenu
-    label: Contenu du portfolio
+  - name: pages
+    label: Pages du portfolio
     files:
-      - name: site
-        label: Textes principaux
-        file: content/site.json
+      - name: accueil
+        label: Accueil
+        file: content/accueil.json
         format: json
         fields:
           - label: Année / mention
             name: portfolioYear
             widget: string
+
           - label: Titre du rôle
             name: role
             widget: string
-          - label: Nom (autorise <br />)
+
+          - label: Nom
             name: name
             widget: string
+            hint: Le champ autorise la balise <br />.
+
           - label: Grand titre
             name: headline
             widget: string
-          - label: Introduction 1
+
+          - label: Premier paragraphe d’introduction
             name: heroIntroOne
             widget: text
-          - label: Introduction 2
+
+          - label: Deuxième paragraphe d’introduction
             name: heroIntroTwo
             widget: text
-          - label: Titre À propos (autorise <br />)
+
+      - name: a-propos
+        label: À propos
+        file: content/a-propos.json
+        format: json
+        fields:
+          - label: Titre
             name: aboutTitle
             widget: string
-          - label: À propos — paragraphe 1
+            hint: Le champ autorise la balise <br />.
+
+          - label: Premier paragraphe
             name: aboutOne
             widget: text
-          - label: À propos — paragraphe 2
+
+          - label: Deuxième paragraphe
             name: aboutTwo
             widget: text
-          - label: À propos — paragraphe 3
+
+          - label: Troisième paragraphe
             name: aboutThree
             widget: text
-          - label: Titre contact (autorise <br />)
+
+      - name: presentation-projets
+        label: Présentation des projets
+        file: content/presentation-projets.json
+        format: json
+        fields:
+          - label: Petit titre de section
+            name: projectsLabel
+            widget: string
+            default: Projets
+
+          - label: Titre principal
+            name: projectsTitle
+            widget: string
+            hint: Le champ autorise la balise <br />.
+
+          - label: Texte d’introduction
+            name: projectsIntroduction
+            widget: text
+            required: false
+
+      - name: contact
+        label: Contact
+        file: content/contact.json
+        format: json
+        fields:
+          - label: Titre
             name: contactTitle
             widget: string
-          - label: Texte contact
+            hint: Le champ autorise la balise <br />.
+
+          - label: Texte
             name: contactCopy
             widget: text
+
           - label: Courriel
             name: email
             widget: string
+
           - label: Lieu
             name: location
             widget: string
@@ -79,7 +125,7 @@ collections:
         widget: string
 
       - label: Domaine
-        name: Domain
+        name: domain
         widget: string
 
       - label: Client
