@@ -70,6 +70,10 @@ collections:
     format: json
     summary: "{{title}}"
     fields:
+      - label: Verbe
+        name: verb
+        widget: string
+
       - label: Titre
         name: title
         widget: string
