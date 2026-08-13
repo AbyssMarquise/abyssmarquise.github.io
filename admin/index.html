@@ -52,28 +52,28 @@
         changeCategory(event) {
           this.props.onChange({
             category: event.target.value,
-            contentType: "",
+            projectType: "",
           });
         },
 
-        changeContentType(event) {
+        changeProjectType(event) {
           const value = this.props.value || {};
           this.props.onChange({
             category: value.category || "",
-            contentType: event.target.value,
+            projectType: event.target.value,
           });
         },
 
         render() {
           const value = this.props.value || {};
           const category = value.category || "";
-          const contentType = value.contentType || "";
+          const projectType = value.projectType || "";
 
           const selectedCategory = this.state.categories.find(
             (item) => item.title === category,
           );
 
-          const contentTypes = selectedCategory
+          const projectTypes = selectedCategory
             ? selectedCategory.projectTypes || []
             : [];
 
@@ -113,8 +113,8 @@
               {
                 key: "type",
                 id: `${this.props.forID}-type`,
-                value: contentType,
-                onChange: this.changeContentType,
+                value: projectType,
+                onChange: this.changeProjectType,
                 disabled: !category,
                 required: true,
               },
@@ -123,10 +123,10 @@
                   "option",
                   { key: "", value: "" },
                   category
-                    ? "Choisir un type de contenu"
+                    ? "Choisir un type de projet"
                     : "Choisis d’abord une catégorie",
                 ),
-                ...contentTypes.map((item) =>
+                ...projectTypes.map((item) =>
                   h("option", { key: item, value: item }, item),
                 ),
               ],
