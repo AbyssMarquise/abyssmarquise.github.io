@@ -78,8 +78,16 @@ collections:
         name: title
         widget: string
 
-      - label: Description
-        name: description
+      - label: Domaine
+        name: Domain
+        widget: string
+
+      - label: Client
+        name: client
+        widget: string
+
+      - label: Brief
+        name: brief
         widget: text
 
       - label: Types de projets
