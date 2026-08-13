@@ -121,18 +121,6 @@ collections:
         name: title
         widget: string
 
-      - label: Domaine
-        name: domain
-        widget: string
-
-      - label: Client
-        name: client
-        widget: string
-
-      - label: Brief
-        name: brief
-        widget: text
-
       - label: Types de projets
         name: projectTypes
         widget: list
@@ -153,13 +141,24 @@ collections:
       - label: Titre
         name: title
         widget: string
+
       - label: Catégorie et type de projet
         name: classification
         widget: category_project_type
-      - label: Description
-        name: description
+
+      - label: Domaine
+        name: domain
+        widget: string
+
+      - label: Client
+        name: client
+        widget: string
+
+      - label: Brief
+        name: brief
         widget: text
-      - label: Image principale
+
+      - label: Image du projet
         name: image
         widget: image
         required: false
