@@ -2,12 +2,18 @@ const GITHUB_AUTHORIZE = "https://github.com/login/oauth/authorize";
 const GITHUB_TOKEN = "https://github.com/login/oauth/access_token";
 
 function html(body) {
-  return new Response(body, { headers: { "content-type": "text/html; charset=UTF-8" } });
+  return new Response(body, {
+    headers: { "content-type": "text/html; charset=UTF-8" },
+  });
 }
 
 function cookie(request, name) {
-  return request.headers.get("cookie")?.split(";").map((item) => item.trim())
-    .find((item) => item.startsWith(`${name}=`))?.slice(name.length + 1);
+  return request.headers
+    .get("cookie")
+    ?.split(";")
+    .map((item) => item.trim())
+    .find((item) => item.startsWith(`${name}=`))
+    ?.slice(name.length + 1);
 }
 
 export default {
@@ -33,16 +39,35 @@ export default {
       const state = url.searchParams.get("state");
       if (!code) return html("Autorisation GitHub annulée.");
       if (!state || state !== cookie(request, "decap_oauth_state")) {
-        return html("La vérification de sécurité a échoué. Réessaie la connexion.");
+        return html(
+          "La vérification de sécurité a échoué. Réessaie la connexion.",
+        );
       }
       const tokenResponse = await fetch(GITHUB_TOKEN, {
         method: "POST",
-        headers: { "content-type": "application/json", accept: "application/json" },
-        body: JSON.stringify({ client_id: env.GITHUB_CLIENT_ID, client_secret: env.GITHUB_CLIENT_SECRET, code }),
+        headers: {
+          "content-type": "application/json",
+          accept: "application/json",
+        },
+        body: JSON.stringify({
+          client_id: env.GITHUB_CLIENT_ID,
+          client_secret: env.GITHUB_CLIENT_SECRET,
+          code,
+        }),
       });
       const token = await tokenResponse.json();
-      if (!token.access_token) return html("Impossible d’obtenir l’autorisation GitHub.");
-      return html(`<script>window.opener.postMessage('authorization:github:success:${token.access_token}', '${env.SITE_ORIGIN}');window.close();</script>`);
+      if (!token.access_token)
+        return html("Impossible d’obtenir l’autorisation GitHub.");
+      return html(`<script>
+  window.opener.postMessage(
+    'authorization:github:success:' + JSON.stringify({
+      token: '${token.access_token}',
+      provider: 'github'
+    }),
+    '${env.SITE_ORIGIN}'
+  );
+  window.close();
+</script>`);
     }
     return new Response("Not found", { status: 404 });
   },
