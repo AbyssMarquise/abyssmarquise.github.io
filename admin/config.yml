@@ -62,7 +62,7 @@ collections:
   - name: projets
     label: Projets
     label_singular: Projet
-    folder: categories/content/projets
+    folder: content/projets
     create: true
     slug: "{{slug}}"
     extension: json
