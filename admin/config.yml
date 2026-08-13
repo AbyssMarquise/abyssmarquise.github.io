@@ -3,7 +3,7 @@ backend:
   repo: abyssmarquise/abyssmarquise.github.io
   branch: main
   base_url: https://camylle-portfolio-decap-auth.abyssmarquise.workers.dev
-  auth_endpoint: auth
+  auth_endpoint: /auth
 
 media_folder: images
 public_folder: /images
