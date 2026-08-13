@@ -121,6 +121,10 @@ collections:
         name: title
         widget: string
 
+      - label: Description
+        name: description
+        widget: text
+
       - label: Types de projets
         name: projectTypes
         widget: list
