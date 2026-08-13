@@ -8,56 +8,98 @@
     <title></title>
     <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
     <link rel="stylesheet" href="./style.css" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Italianno&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <main id="haut">
       <header class="site-header">
-        <a class="wordmark" href="#haut" aria-label="Retour à l’accueil">
-          <img src="images/logo-secondaire-camylle-michaud.svg" alt="Camylle Michaud" class="wordmark-logo" />
-          <span data-content="portfolioYear"></span>
+        <a class="header-identity" href="#haut" aria-label="Retour à l’accueil">
+          <span class="wordmark-name" data-content="name"></span>
+          <span class="wordmark-role" data-content="role"></span>
         </a>
+
         <nav class="desktop-nav" aria-label="Navigation principale">
-          <a href="#a-propos" data-content="navAbout"></a><a href="#projets" data-content="navProjects"></a><a href="#contact" data-content="navContact"></a>
+          <a href="#projets" data-content="navProjects"></a>
+          <!-- <a href="#services" data-content="navServices"></a>-->
+          <a href="#a-propos" data-content="navAbout"></a>
+          <!-- <a href="#process" data-content="navProcess"></a>-->
+          <a href="#contact" data-content="navContact"></a>
         </nav>
+
+        <a class="header-cta" href="#contact" data-content="navParlons-en"></a>
+
         <details class="mobile-menu">
-          <summary aria-label="Ouvrir le menu" data-content="menuLabel"></summary>
+          <summary
+            aria-label="Ouvrir le menu"
+            data-content="menuLabel"
+          ></summary>
+
           <nav aria-label="Navigation mobile">
-            <a href="#a-propos" data-content="navAbout"></a><a href="#projets" data-content="navProjects"></a><a href="#contact" data-content="navContact"></a>
+            <a href="#projets" data-content="navProjects"></a>
+            <!--  <a href="#services" data-content="navServices"></a>-->
+            <a href="#a-propos" data-content="navAbout"></a>
+            <!--  <a href="#process" data-content="navProcess"></a>-->
+            <a href="#contact" data-content="navContact"></a>
+            <a
+              class="mobile-menu-cta"
+              href="#contact"
+              data-content="navParlons-en"
+            ></a>
           </nav>
         </details>
       </header>
 
       <section class="about-section">
-        <div class="hero">
+        <div class="hero hero-loading">
           <div class="section-index" aria-hidden="true"><span></span></div>
           <div class="hero-copy">
             <p class="eyebrow" data-content="role"></p>
-            <h1 data-content="name"></h1>
             <div class="title-rule" aria-hidden="true"></div>
-            <h2 data-content="headline"></h2>
-            <p class="intro" data-content="heroIntroOne"></p>
+            <h1 data-content="headline"></h1>
+            <!-- <p class="intro" data-content="heroIntroOne"></p>-->
             <p class="intro" data-content="heroIntroTwo"></p>
             <div class="hero-actions">
-              <a class="button button-primary" href="#projets"><span data-content="projectsCta"></span> <span aria-hidden="true">→</span></a>
+              <a class="button button-primary" href="#contact"
+                ><span data-content="contactCta"></span>
+                <span aria-hidden="true">→</span></a
+              >
+              <a class="button button-secondary" href="#projets"
+                ><span data-content="projectsCta"></span>
+                <span aria-hidden="true">→</span></a
+              >
             </div>
           </div>
-          <div class="hero-art" role="img" aria-label="Composition éditoriale">
-            <div class="art-frame art-frame-main"><div class="image-placeholder"></div><div class="paper-grid"></div></div>
-            <div class="art-card art-card-chart" aria-hidden="true"><div class="chart-circle"></div><div class="chart-lines"><i></i><i></i><i></i></div></div>
-            <div class="art-card art-card-accent" aria-hidden="true"><span data-content="artAccent"></span><div class="accent-arch"></div></div>
-          </div>
-        </div>
 
-        <div class="about-panel" id="a-propos">
-          <div class="about-heading"><p class="section-label" data-content="aboutLabel"></p><h2 data-content="aboutTitle"></h2></div>
-          <div class="about-content">
-            <div class="portrait-photo"><img src="images/camylle-portrait.webp" alt="Portrait de Camylle Michaud" /></div>
-            <div class="about-copy">
-              <p data-content="aboutOne"></p><p data-content="aboutTwo"></p><p data-content="aboutThree"></p>
-              <div class="skill-list" data-list="skills" aria-label="Compétences principales"></div>
+          <!--   <div class="hero-art" role="img" aria-label="Composition éditoriale">
+            <div class="art-frame art-frame-main">
+              <div class="image-placeholder"></div>
+              <div class="paper-grid"></div>
             </div>
+            <div class="art-card art-card-chart" aria-hidden="true">
+              <div class="chart-circle"></div>
+              <div class="chart-lines"><i></i><i></i><i></i></div>
+            </div>
+            <div class="art-card art-card-accent" aria-hidden="true">
+              <span data-content="artAccent"></span>
+              <div class="accent-arch"></div>
+            </div>
+          </div>-->
+          <div class="portrait-photo">
+            <img
+              src="images/camylle-portrait.webp"
+              alt="Portrait de Camylle Michaud"
+            />
           </div>
+          <span class="location" data-content="location"></span>
         </div>
       </section>
 
@@ -70,76 +112,194 @@
         <div class="projects-grid" id="projects-grid" aria-live="polite"></div>
       </section>
 
+      <div class="about-panel" id="a-propos">
+        <div class="about-heading">
+          <p class="section-label" data-content="aboutLabel"></p>
+          <h2 data-content="aboutTitle"></h2>
+        </div>
+        <div class="about-content">
+          <div class="about-copy">
+            <p data-content="aboutOne"></p>
+            <p data-content="aboutTwo"></p>
+            <p data-content="aboutThree"></p>
+            <div
+              class="skill-list"
+              data-list="skills"
+              aria-label="Compétences principales"
+            ></div>
+          </div>
+        </div>
+      </div>
+
       <section class="contact-section" id="contact">
         <div class="contact-index" aria-hidden="true"></div>
         <p class="section-label light" data-content="contactLabel"></p>
         <h2 data-content="contactTitle"></h2>
         <p class="contact-copy" data-content="contactCopy"></p>
-        <a class="contact-email" data-email href=""><span aria-hidden="true">↗</span></a>
-        <div class="contact-meta"><span data-content="location"></span><span data-content="portfolioYear"></span></div>
+        <a class="contact-email" data-email href=""
+          ><span aria-hidden="true">↗</span></a
+        >
+        <div class="contact-meta">
+          <span data-content="portfolioYear"></span>
+        </div>
       </section>
 
       <footer class="site-footer">
         <div class="footer-grid">
           <div class="footer-brand">
-            <img
-              src="images/logo-secondaire-camylle-michaud.svg"
-              alt=""
-              class="footer-logo"
-            />
+            <h3 class="wordmark" data-content="name"></h3>
             <p data-content="footerIntroduction"></p>
           </div>
 
-          <nav class="footer-navigation" aria-label="Navigation du pied de page">
+          <nav
+            class="footer-navigation"
+            aria-label="Navigation du pied de page"
+          >
             <p class="footer-heading" data-content="footerNavigationLabel"></p>
             <a href="#haut" data-content="footerHome"></a>
-            <a href="#a-propos" data-content="navAbout"></a>
+            <!--   <a href="#services" data-content="navServices"></a>-->
+
             <a href="#projets" data-content="navProjects"></a>
+            <a href="#a-propos" data-content="navAbout"></a>
+            <!--   <a href="#process" data-content="navProcess"></a>-->
             <a href="#contact" data-content="navContact"></a>
           </nav>
 
           <div class="footer-contact">
             <p class="footer-heading" data-content="footerContactLabel"></p>
             <a data-footer-email href=""></a>
-            <a data-social="linkedin" data-content="linkedinLabel" href="" target="_blank" rel="noreferrer"></a>
-            <a data-social="github" data-content="githubLabel" href="" target="_blank" rel="noreferrer"></a>
-            <a data-social="medium" data-content="mediumLabel" href="" target="_blank" rel="noreferrer"></a>
+            <a
+              data-social="linkedin"
+              data-content="linkedinLabel"
+              href="www.linkedin.com/in/camylle-michaud"
+              target="_blank"
+              rel="noreferrer"
+            ></a>
+            <a
+              data-social="github"
+              data-content="githubLabel"
+              href="https://github.com/AbyssMarquise"
+              target="_blank"
+              rel="noreferrer"
+            ></a>
+            <a
+              data-social="medium"
+              data-content="mediumLabel"
+              href=""
+              target="_blank"
+              rel="noreferrer"
+            ></a>
           </div>
         </div>
 
         <div class="footer-bottom">
           <p data-content="copyright"></p>
-          <a href="#haut" data-content="backToTop"></a>
+          <p>Conçu et construit par Camylle.</p>
         </div>
       </footer>
     </main>
 
-    <a class="scroll-cue" href="#haut" aria-label="Retourner en haut de la page">
-      <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 19V5M6.5 10.5 12 5l5.5 5.5"></path></svg>
+    <a
+      class="scroll-cue"
+      href="#haut"
+      aria-label="Retourner en haut de la page"
+    >
+      <svg aria-hidden="true" viewBox="0 0 24 24">
+        <path d="M12 19V5M6.5 10.5 12 5l5.5 5.5"></path>
+      </svg>
     </a>
 
     <!-- Modèles structurels : aucune donnée de contenu n’est inscrite ici. -->
     <template id="category-card-template">
-      <article class="project-card grouped-project-card" data-grouped-project aria-live="polite">
+      <article
+        class="project-card grouped-project-card"
+        data-grouped-project
+        aria-live="polite"
+      >
         <div class="project-slides"></div>
-        <div class="project-content"><p class="project-type"></p><h3></h3><p class="project-description"></p><ul aria-label="Types de projets"></ul></div>
+        <div class="project-content">
+          <p class="project-type"></p>
+          <h3></h3>
+          <p class="project-description"></p>
+          <ul aria-label="Types de projets"></ul>
+        </div>
       </article>
     </template>
 
     <template id="single-visual-template">
-      <div class="project-slide"><div class="project-visual visual-identity"><span class="project-number"></span><div class="project-navigation"></div><div class="project-assets"></div></div></div>
+      <div class="project-slide">
+        <div class="project-visual visual-identity">
+          <span class="project-number"></span>
+          <div class="project-navigation"></div>
+          <div class="project-assets"></div>
+        </div>
+      </div>
     </template>
 
     <template id="posters-visual-template">
-      <div class="project-slide"><div class="project-visual visual-campaign"><span class="project-number"></span><div class="project-navigation"></div><div class="poster-shadow poster-shadow-one" aria-hidden="true"></div><div class="poster-shadow poster-shadow-two" aria-hidden="true"></div><div class="project-assets"></div></div></div>
+      <div class="project-slide">
+        <div class="project-visual visual-campaign">
+          <span class="project-number"></span>
+          <div class="project-navigation"></div>
+          <div class="poster-shadow poster-shadow-one" aria-hidden="true"></div>
+          <div class="poster-shadow poster-shadow-two" aria-hidden="true"></div>
+          <div class="project-assets"></div>
+        </div>
+      </div>
     </template>
 
     <template id="communication-visual-template">
-      <div class="project-slide"><div class="project-visual visual-campaign"><span class="project-number"></span><div class="project-navigation"></div><div class="project-assets"></div></div></div>
+      <div class="project-slide">
+        <div class="project-visual visual-campaign">
+          <span class="project-number"></span>
+          <div class="project-navigation"></div>
+          <div class="project-assets"></div>
+        </div>
+      </div>
     </template>
 
     <template id="browser-visual-template">
-      <div class="project-slide"><div class="project-visual visual-social"><span class="project-number"></span><div class="project-navigation"></div><div class="browser-window"><div class="browser-bar"><div class="browser-controls" aria-hidden="true"><span></span><span></span><span></span></div><div class="browser-address"><span class="browser-lock" aria-hidden="true">●</span><span></span></div></div><div class="browser-page"><div class="browser-site-header"><div class="browser-logo"></div><div class="browser-navigation" aria-hidden="true"><span></span><span></span><span></span></div></div><div class="browser-article"><p class="browser-category"></p><div class="browser-article-title" aria-hidden="true"><span></span><span></span></div><div class="browser-meta" aria-hidden="true"><span class="browser-avatar"></span></div><div class="browser-paragraph browser-paragraph-top" aria-hidden="true"><span></span><span></span><span></span></div><div class="browser-ads project-assets"></div></div></div></div></div></div>
+      <div class="project-slide">
+        <div class="project-visual visual-social">
+          <span class="project-number"></span>
+          <div class="project-navigation"></div>
+          <div class="browser-window">
+            <div class="browser-bar">
+              <div class="browser-controls" aria-hidden="true">
+                <span></span><span></span><span></span>
+              </div>
+              <div class="browser-address">
+                <span class="browser-lock" aria-hidden="true">●</span
+                ><span></span>
+              </div>
+            </div>
+            <div class="browser-page">
+              <div class="browser-site-header">
+                <div class="browser-logo"></div>
+                <div class="browser-navigation" aria-hidden="true">
+                  <span></span><span></span><span></span>
+                </div>
+              </div>
+              <div class="browser-article">
+                <p class="browser-category"></p>
+                <div class="browser-article-title" aria-hidden="true">
+                  <span></span><span></span>
+                </div>
+                <div class="browser-meta" aria-hidden="true">
+                  <span class="browser-avatar"></span>
+                </div>
+                <div
+                  class="browser-paragraph browser-paragraph-top"
+                  aria-hidden="true"
+                >
+                  <span></span><span></span><span></span>
+                </div>
+                <div class="browser-ads project-assets"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </template>
 
     <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
