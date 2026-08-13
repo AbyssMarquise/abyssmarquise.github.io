@@ -43,7 +43,7 @@ collections:
   - name: categories
     label: Catégories
     label_singular: Catégorie
-    folder: content/categories
+    file: content/categories.json
     create: true
     slug: "{{slug}}"
     extension: json
