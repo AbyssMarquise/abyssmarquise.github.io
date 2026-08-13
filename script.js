@@ -114,3 +114,73 @@ document.querySelectorAll("[data-grouped-project]").forEach((card) => {
     });
   });
 });
+
+async function loadProjects() {
+  const grid = document.querySelector("#projects-grid");
+  if (!grid) return;
+
+  try {
+    const indexResponse = await fetch("content/projets/index.json", {
+      cache: "no-store",
+    });
+
+    if (!indexResponse.ok) return;
+
+    const files = await indexResponse.json();
+
+    const projects = await Promise.all(
+      files.map(async (file) => {
+        const response = await fetch(`content/projets/${file}.json`, {
+          cache: "no-store",
+        });
+
+        return response.ok ? response.json() : null;
+      }),
+    );
+
+    projects.filter(Boolean).forEach((project, index) => {
+      const card = document.createElement("article");
+      card.className = "project-card";
+
+      const skills = (project.skills || [])
+        .map((skill) => `<li>${skill}</li>`)
+        .join("");
+
+      const image = project.image
+        ? `
+          <a href="${project.image}" class="glightbox project-main-image"
+             data-gallery="project-${index + 1}"
+             data-title="${project.title}">
+            <img src="${project.image}" alt="${project.title}">
+          </a>
+        `
+        : "";
+
+      card.innerHTML = `
+        <div class="project-visual visual-identity">
+          <span class="project-number">${String(index + 1).padStart(2, "0")}</span>
+          ${image}
+        </div>
+        <div class="project-content">
+          <p class="project-type">${project.category || ""}</p>
+          <h3>${project.title || ""}</h3>
+          <p>${project.description || ""}</p>
+          <ul aria-label="Outils et expertises">${skills}</ul>
+        </div>
+      `;
+
+      grid.appendChild(card);
+    });
+
+    GLightbox({
+      selector: ".glightbox",
+      loop: true,
+      touchNavigation: true,
+      closeButton: true,
+    });
+  } catch (error) {
+    console.warn("Les projets n’ont pas pu être chargés.", error);
+  }
+}
+
+loadProjects();

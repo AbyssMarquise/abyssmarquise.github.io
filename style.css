@@ -286,7 +286,7 @@ summary {
   inset: 3% 0 17% 8%;
   background:
     linear-gradient(rgba(11, 93, 99, 0.05), rgba(11, 93, 99, 0.01)),
-    url("./assets/editorial-hero.webp") 66% center / cover no-repeat;
+    url("./images/editorial-hero.webp") 66% center / cover no-repeat;
 }
 
 .art-frame-main::before {
