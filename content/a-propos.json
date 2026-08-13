@@ -1,6 +1,11 @@
 {
   "aboutLabel": "À propos",
-  "skills": ["Infographie", "Rédaction", "Site Web", "Médias sociaux"],
+  "skills": [
+    "Infographie",
+    "Rédaction",
+    "Médias sociaux",
+    "Site Web"
+  ],
   "aboutTitle": "Créer du sens,<br />pas seulement du beau.",
   "aboutOne": "Depuis toujours, je suis attirée par les univers qui racontent une histoire. La musique, la littérature, le cinéma et la nature nourrissent mon regard et influencent naturellement ma façon de créer. J'aime les compositions épurées, les typographies élégantes et les palettes naturelles.",
   "aboutTwo": "Mon parcours en conception de bases de données m'a apporté une approche structurée, ainsi que des compétences en gestion de projet, en développement Web et en analyse. Aujourd'hui, cette rigueur complète ma sensibilité créative.",
