@@ -8,6 +8,8 @@ backend:
 media_folder: images
 public_folder: /images
 
+publish_mode: editorial_workflow
+
 collections:
   - name: pages
     label: Pages du portfolio
