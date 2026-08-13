@@ -3,3 +3,6 @@
 
 # Dépendances locales
 node_modules/
+
+# Proxy OAuth local — ne pas envoyer dans le dépôt
+decap-proxy/
