@@ -1,7 +1,7 @@
 {
-  "title": "Identité visuelle 1",
+  "title": "Identité visuelle de ma marque professionnelle",
   "category": "Identité visuelle",
-  "description": "Donnez une personnalité unique à votre entreprise en créant une image de marque cohérente et mémorable.",
+  "description": "Réalisée en 2026 avec Canva. Ce tableau représente l'identité visuelle créée pour ma marque professionnelle.",
   "image": "/images/projet-01-1.webp",
   "year": "2026",
   "skills": [
@@ -10,5 +10,9 @@
     "Typographie",
     "Monogramme",
     "Guide de marque"
-  ]
+  ],
+  "classification": {
+    "category": "Identité visuelle",
+    "projectType": "Guide de marque"
+  }
 }
