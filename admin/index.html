@@ -5,48 +5,122 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Administration — Camylle Michaud</title>
   </head>
+
   <body>
     <script>
       window.CMS_MANUAL_INIT = true;
     </script>
 
-    <script src="https://unpkg.com/decap-cms@^3.7.0/dist/decap-cms.js"></script>
+    <script src="https://unpkg.com/decap-cms@3.15.1/dist/decap-cms.js"></script>
 
     <script>
-      const CategoriesControl = createClass({
+      const CategoryProjectTypeControl = createClass({
         getInitialState() {
-          return { categories: [], error: "" };
+          return {
+            categories: [],
+            loading: true,
+            error: "",
+          };
         },
 
         componentDidMount() {
-          fetch(
-            "https://api.github.com/repos/abyssmarquise/abyssmarquise.github.io/contents/content/categories?ref=main",
-          )
+          this.loadCategories();
+        },
+
+        loadCategories() {
+          const apiUrl =
+            "https://api.github.com/repos/abyssmarquise/abyssmarquise.github.io/contents/content/categories?ref=main";
+
+          fetch(apiUrl, {
+            cache: "no-store",
+            headers: {
+              Accept: "application/vnd.github+json",
+            },
+          })
             .then((response) => {
-              if (!response.ok) throw new Error();
+              if (!response.ok) {
+                throw new Error(
+                  "Impossible de charger le dossier des catégories.",
+                );
+              }
+
               return response.json();
             })
-            .then((files) =>
-              Promise.all(
-                files
-                  .filter(
-                    (file) =>
-                      file.type === "file" && file.name.endsWith(".json"),
-                  )
-                  .map((file) =>
-                    fetch(file.download_url).then((response) =>
-                      response.json(),
-                    ),
-                  ),
-              ),
-            )
-            .then((categories) => this.setState({ categories }))
-            .catch(() =>
+            .then((files) => {
+              if (!Array.isArray(files)) {
+                throw new Error("Le dossier des catégories est introuvable.");
+              }
+
+              const categoryFiles = files.filter(
+                (file) =>
+                  file.type === "file" &&
+                  file.name.toLowerCase().endsWith(".json"),
+              );
+
+              return Promise.all(
+                categoryFiles.map((file) =>
+                  fetch(file.download_url, {
+                    cache: "no-store",
+                  }).then((response) => {
+                    if (!response.ok) {
+                      throw new Error(`Impossible de charger ${file.name}.`);
+                    }
+
+                    return response.json();
+                  }),
+                ),
+              );
+            })
+            .then((categories) => {
+              const validCategories = categories
+                .filter(
+                  (category) => category && typeof category.title === "string",
+                )
+                .sort((first, second) =>
+                  first.title.localeCompare(second.title, "fr"),
+                );
+
               this.setState({
+                categories: validCategories,
+                loading: false,
+                error: "",
+              });
+            })
+            .catch((error) => {
+              this.setState({
+                categories: [],
+                loading: false,
                 error:
-                  "Crée d’abord au moins une catégorie, puis recharge Decap.",
-              }),
-            );
+                  error.message || "Les catégories n’ont pas pu être chargées.",
+              });
+            });
+        },
+
+        getCurrentValue() {
+          const value = this.props.value;
+
+          if (!value) {
+            return {
+              category: "",
+              projectType: "",
+            };
+          }
+
+          /*
+           * Decap peut transmettre la valeur comme objet JavaScript
+           * ou comme objet Immutable.
+           */
+          if (typeof value.get === "function") {
+            return {
+              category: value.get("category") || "",
+              projectType: value.get("projectType") || "",
+            };
+          }
+
+          return {
+            category: value.category || "",
+            projectType: value.projectType || "",
+          };
         },
 
         changeCategory(event) {
@@ -57,93 +131,165 @@
         },
 
         changeProjectType(event) {
-          const value = this.props.value || {};
+          const currentValue = this.getCurrentValue();
+
           this.props.onChange({
-            category: value.category || "",
+            category: currentValue.category,
             projectType: event.target.value,
           });
         },
 
         render() {
-          const value = this.props.value || {};
-          const category = value.category || "";
-          const projectType = value.projectType || "";
+          const currentValue = this.getCurrentValue();
+          const category = currentValue.category;
+          const projectType = currentValue.projectType;
 
           const selectedCategory = this.state.categories.find(
             (item) => item.title === category,
           );
 
-          const projectTypes = selectedCategory
-            ? selectedCategory.projectTypes || []
-            : [];
+          const projectTypes =
+            selectedCategory && Array.isArray(selectedCategory.projectTypes)
+              ? selectedCategory.projectTypes
+              : [];
 
-          return h("div", { className: this.props.classNameWrapper }, [
-            h("label", { key: "category-label" }, "Catégorie"),
-            h(
-              "select",
-              {
-                key: "category",
-                id: `${this.props.forID}-category`,
-                value: category,
-                onChange: this.changeCategory,
-                required: true,
-              },
-              [
-                h("option", { key: "", value: "" }, "Choisir une catégorie"),
-                ...this.state.categories.map((item) =>
+          return h(
+            "div",
+            {
+              className: this.props.classNameWrapper,
+            },
+            [
+              h(
+                "label",
+                {
+                  key: "category-label",
+                  htmlFor: `${this.props.forID}-category`,
+                  style: {
+                    display: "block",
+                    marginBottom: "0.4rem",
+                    fontWeight: "600",
+                  },
+                },
+                "Catégorie",
+              ),
+
+              h(
+                "select",
+                {
+                  key: "category",
+                  id: `${this.props.forID}-category`,
+                  value: category,
+                  onChange: this.changeCategory,
+                  disabled: this.state.loading,
+                  style: {
+                    display: "block",
+                    width: "100%",
+                    minHeight: "42px",
+                    padding: "0.5rem",
+                  },
+                },
+                [
                   h(
                     "option",
-                    { key: item.title, value: item.title },
-                    item.title,
+                    {
+                      key: "empty-category",
+                      value: "",
+                    },
+                    this.state.loading
+                      ? "Chargement des catégories…"
+                      : "Choisir une catégorie",
                   ),
-                ),
-              ],
-            ),
 
-            h(
-              "label",
-              {
-                key: "type-label",
-                style: { display: "block", marginTop: "1rem" },
-              },
-              "Type de projet",
-            ),
-            h(
-              "select",
-              {
-                key: "type",
-                id: `${this.props.forID}-type`,
-                value: projectType,
-                onChange: this.changeProjectType,
-                disabled: !category,
-                required: true,
-              },
-              [
-                h(
-                  "option",
-                  { key: "", value: "" },
-                  category
-                    ? "Choisir un type de projet"
-                    : "Choisis d’abord une catégorie",
-                ),
-                ...contentTypes.map((item) =>
-                  h("option", { key: item, value: item }, item),
-                ),
-              ],
-            ),
+                  ...this.state.categories.map((item) =>
+                    h(
+                      "option",
+                      {
+                        key: item.title,
+                        value: item.title,
+                      },
+                      item.title,
+                    ),
+                  ),
+                ],
+              ),
 
-            this.state.error
-              ? h(
-                  "p",
-                  { key: "error", style: { color: "#b42318" } },
-                  this.state.error,
-                )
-              : null,
-          ]);
+              h(
+                "label",
+                {
+                  key: "project-type-label",
+                  htmlFor: `${this.props.forID}-project-type`,
+                  style: {
+                    display: "block",
+                    marginTop: "1rem",
+                    marginBottom: "0.4rem",
+                    fontWeight: "600",
+                  },
+                },
+                "Type de projet",
+              ),
+
+              h(
+                "select",
+                {
+                  key: "project-type",
+                  id: `${this.props.forID}-project-type`,
+                  value: projectType,
+                  onChange: this.changeProjectType,
+                  disabled: !category || this.state.loading,
+                  style: {
+                    display: "block",
+                    width: "100%",
+                    minHeight: "42px",
+                    padding: "0.5rem",
+                  },
+                },
+                [
+                  h(
+                    "option",
+                    {
+                      key: "empty-project-type",
+                      value: "",
+                    },
+                    category
+                      ? projectTypes.length
+                        ? "Choisir un type de projet"
+                        : "Aucun type défini pour cette catégorie"
+                      : "Choisir d’abord une catégorie",
+                  ),
+
+                  ...projectTypes.map((type) =>
+                    h(
+                      "option",
+                      {
+                        key: type,
+                        value: type,
+                      },
+                      type,
+                    ),
+                  ),
+                ],
+              ),
+
+              this.state.error
+                ? h(
+                    "p",
+                    {
+                      key: "error",
+                      style: {
+                        color: "#b42318",
+                        marginTop: "1rem",
+                      },
+                    },
+                    this.state.error,
+                  )
+                : null,
+            ],
+          );
         },
       });
 
-      CMS.registerWidget("category_project_type", CategoriesControl);
+      CMS.registerWidget("category_project_type", CategoryProjectTypeControl);
+
       window.initCMS();
     </script>
   </body>

@@ -62,30 +62,29 @@ collections:
 
   - name: categories
     label: Catégories
-    files:
-      - name: categories
-        label: Gérer les catégories
-        file: content/categories.json
-        format: json
-        fields:
-          - label: Catégories
-            name: categories
-            widget: list
-            summary: "{{fields.title}}"
-            fields:
-              - label: Titre
-                name: title
-                widget: string
-              - label: Description
-                name: description
-                widget: text
-              - label: Types de projets
-                name: projectTypes
-                widget: list
-                field:
-                  label: Type de projet
-                  name: projectType
-                  widget: string
+    label_singular: Catégorie
+    folder: content/categories
+    create: true
+    slug: "{{slug}}"
+    extension: json
+    format: json
+    summary: "{{title}}"
+    fields:
+      - label: Titre
+        name: title
+        widget: string
+
+      - label: Description
+        name: description
+        widget: text
+
+      - label: Types de projets
+        name: projectTypes
+        widget: list
+        field:
+          label: Type de projet
+          name: projectType
+          widget: string
 
   - name: projets
     label: Projets
@@ -109,9 +108,3 @@ collections:
         name: image
         widget: image
         required: false
-      - label: Année
-        name: year
-        widget: string
-      - label: Compétences
-        name: skills
-        widget: list

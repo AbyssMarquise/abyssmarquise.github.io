@@ -1,13 +1,10 @@
 {
   "title": "Publicités et campagnes",
-  "category": "Publicité",
+  "Verbe": "Promouvoir",
   "description": "Je conçois des campagnes pour promouvoir vos produits et services sur les réseaux sociaux, sur le Web et dans les médias imprimés afin d’attirer l’attention, de convaincre et de favoriser les ventes.",
-  "image": "/images/projet-03-1-1.webp",
-  "year": "2026",
-  "skills": [
-    "Courriel",
-    "Réseaux sociaux",
-    "Affiche publicitaire",
-    "Multiformats"
+  "projectTypes": [
+    "Affiche promotionnelle",
+    "Publicité Web",
+    "Réseaux sociaux"
   ]
 }
