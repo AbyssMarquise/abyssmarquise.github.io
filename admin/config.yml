@@ -17,28 +17,48 @@ collections:
         file: content/site.json
         format: json
         fields:
-          - { label: "Année / mention", name: portfolioYear, widget: string }
-          - { label: "Titre du rôle", name: role, widget: string }
-          - { label: "Nom (autorise <br />)", name: name, widget: string }
-          - { label: "Grand titre", name: headline, widget: string }
-          - { label: "Introduction 1", name: heroIntroOne, widget: text }
-          - { label: "Introduction 2", name: heroIntroTwo, widget: text }
-          - {
-              label: "Titre À propos (autorise <br />)",
-              name: aboutTitle,
-              widget: string,
-            }
-          - { label: "À propos — paragraphe 1", name: aboutOne, widget: text }
-          - { label: "À propos — paragraphe 2", name: aboutTwo, widget: text }
-          - { label: "À propos — paragraphe 3", name: aboutThree, widget: text }
-          - {
-              label: "Titre contact (autorise <br />)",
-              name: contactTitle,
-              widget: string,
-            }
-          - { label: "Texte contact", name: contactCopy, widget: text }
-          - { label: Courriel, name: email, widget: string }
-          - { label: Lieu, name: location, widget: string }
+          - label: Année / mention
+            name: portfolioYear
+            widget: string
+          - label: Titre du rôle
+            name: role
+            widget: string
+          - label: Nom (autorise <br />)
+            name: name
+            widget: string
+          - label: Grand titre
+            name: headline
+            widget: string
+          - label: Introduction 1
+            name: heroIntroOne
+            widget: text
+          - label: Introduction 2
+            name: heroIntroTwo
+            widget: text
+          - label: Titre À propos (autorise <br />)
+            name: aboutTitle
+            widget: string
+          - label: À propos — paragraphe 1
+            name: aboutOne
+            widget: text
+          - label: À propos — paragraphe 2
+            name: aboutTwo
+            widget: text
+          - label: À propos — paragraphe 3
+            name: aboutThree
+            widget: text
+          - label: Titre contact (autorise <br />)
+            name: contactTitle
+            widget: string
+          - label: Texte contact
+            name: contactCopy
+            widget: text
+          - label: Courriel
+            name: email
+            widget: string
+          - label: Lieu
+            name: location
+            widget: string
 
   - name: categories
     label: Catégories
@@ -53,8 +73,12 @@ collections:
             widget: list
             summary: "{{fields.title}}"
             fields:
-              - { label: Titre, name: title, widget: string }
-              - { label: Description, name: description, widget: text }
+              - label: Titre
+                name: title
+                widget: string
+              - label: Description
+                name: description
+                widget: text
               - label: Types de projets
                 name: projectTypes
                 widget: list
@@ -72,11 +96,22 @@ collections:
     extension: json
     format: json
     fields:
-      - { label: Titre, name: title, widget: string }
+      - label: Titre
+        name: title
+        widget: string
       - label: Catégorie et type de projet
         name: classification
         widget: category_project_type
-      - { label: Description, name: description, widget: text }
-      - { label: Image principale, name: image, widget: image, required: false }
-      - { label: Année, name: year, widget: string }
-      - { label: Compétences, name: skills, widget: list }
+      - label: Description
+        name: description
+        widget: text
+      - label: Image principale
+        name: image
+        widget: image
+        required: false
+      - label: Année
+        name: year
+        widget: string
+      - label: Compétences
+        name: skills
+        widget: list
