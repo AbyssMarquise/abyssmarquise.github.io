@@ -19,30 +19,18 @@ function cookie(request, name) {
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
-    if (url.pathname === "/auth") {
-      const state = crypto.randomUUID();
-      const redirect = new URL(GITHUB_AUTHORIZE);
-      redirect.searchParams.set("client_id", env.GITHUB_CLIENT_ID);
-      redirect.searchParams.set("redirect_uri", `${url.origin}/callback`);
-      redirect.searchParams.set("scope", "repo");
-      redirect.searchParams.set("state", state);
-      return new Response(null, {
-        status: 302,
-        headers: {
-          location: redirect.toString(),
-          "set-cookie": `decap_oauth_state=${state}; HttpOnly; Secure; SameSite=Lax; Path=/; Max-Age=600`,
-        },
-      });
-    }
     if (url.pathname === "/callback") {
       const code = url.searchParams.get("code");
       const state = url.searchParams.get("state");
+
       if (!code) return html("Autorisation GitHub annulée.");
+
       if (!state || state !== cookie(request, "decap_oauth_state")) {
         return html(
           "La vérification de sécurité a échoué. Réessaie la connexion.",
         );
       }
+
       const tokenResponse = await fetch(GITHUB_TOKEN, {
         method: "POST",
         headers: {
@@ -55,19 +43,32 @@ export default {
           code,
         }),
       });
+
       const token = await tokenResponse.json();
-      if (!token.access_token)
+
+      if (!token.access_token) {
         return html("Impossible d’obtenir l’autorisation GitHub.");
-      return html(`<script>
-  window.opener.postMessage(
-    'authorization:github:success:' + JSON.stringify({
-      token: '${token.access_token}',
-      provider: 'github'
-    }),
-    '${env.SITE_ORIGIN}'
-  );
-  window.close();
-</script>`);
+      }
+
+      const result = JSON.stringify({
+        token: token.access_token,
+        provider: "github",
+      });
+
+      return html(`
+    <!doctype html>
+    <html>
+      <body>
+        <script>
+          window.opener.postMessage(
+            "authorization:github:success:" + ${JSON.stringify(result)},
+            "*"
+          );
+          window.close();
+        </script>
+      </body>
+    </html>
+  `);
     }
     return new Response("Not found", { status: 404 });
   },
