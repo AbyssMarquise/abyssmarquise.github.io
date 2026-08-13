@@ -6,7 +6,7 @@
 - Les couleurs, la typographie et la mise en page se trouvent dans `style.css`.
 - Le vert principal est `#066460`.
 
-## Administration gratuite
+## Administration
 
 Après la configuration OAuth, l’interface d’édition est accessible à `/admin/`.
 Elle enregistre les textes dans `content/site.json`, puis GitHub Pages publie la
