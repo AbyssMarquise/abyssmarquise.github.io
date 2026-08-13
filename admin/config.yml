@@ -12,7 +12,7 @@ publish_mode: editorial_workflow
 
 collections:
   - name: pages
-    label: Pages
+    label: Pages du portfolio
     files:
       - name: accueil
         label: Accueil
@@ -24,16 +24,8 @@ collections:
           - { label: Navigation — Projets, name: navProjects, widget: string }
           - { label: Navigation — Contact, name: navContact, widget: string }
           - { label: Libellé du menu mobile, name: menuLabel, widget: string }
-          - {
-              label: Bouton vers les projets,
-              name: projectsCta,
-              widget: string,
-            }
-          - {
-              label: Mot dans la composition visuelle,
-              name: artAccent,
-              widget: string,
-            }
+          - { label: Bouton vers les projets, name: projectsCta, widget: string }
+          - { label: Mot dans la composition visuelle, name: artAccent, widget: string }
           - label: Année / mention
             name: portfolioYear
             widget: string
@@ -88,15 +80,11 @@ collections:
             field: { label: Compétence, name: skill, widget: string }
 
       - name: presentation-projets
-        label: Projets
+        label: Présentation des projets
         file: content/presentation-projets.json
         format: json
         fields:
-          - {
-              label: Petit titre de section,
-              name: projectsLabel,
-              widget: string,
-            }
+          - { label: Petit titre de section, name: projectsLabel, widget: string }
           - label: Titre principal
             name: projectsTitle
             widget: string
@@ -112,11 +100,7 @@ collections:
         file: content/contact.json
         format: json
         fields:
-          - {
-              label: Petit titre de section,
-              name: contactLabel,
-              widget: string,
-            }
+          - { label: Petit titre de section, name: contactLabel, widget: string }
           - label: Titre
             name: contactTitle
             widget: string
@@ -132,6 +116,57 @@ collections:
 
           - label: Lieu
             name: location
+            widget: string
+
+          - label: Introduction du pied de page
+            name: footerIntroduction
+            widget: text
+
+          - label: Titre — Navigation
+            name: footerNavigationLabel
+            widget: string
+
+          - label: Titre — Contact
+            name: footerContactLabel
+            widget: string
+
+          - label: Libellé — Accueil
+            name: footerHome
+            widget: string
+
+          - label: URL LinkedIn
+            name: linkedin
+            widget: string
+            required: false
+
+          - label: Libellé LinkedIn
+            name: linkedinLabel
+            widget: string
+
+          - label: URL GitHub
+            name: github
+            widget: string
+            required: false
+
+          - label: Libellé GitHub
+            name: githubLabel
+            widget: string
+
+          - label: URL Medium
+            name: medium
+            widget: string
+            required: false
+
+          - label: Libellé Medium
+            name: mediumLabel
+            widget: string
+
+          - label: Mention de droits d’auteur
+            name: copyright
+            widget: string
+
+          - label: Libellé — Retour en haut
+            name: backToTop
             widget: string
 
   - name: categories

@@ -39,6 +39,21 @@ async function loadPages() {
     email.href = `mailto:${content.email}`;
     email.insertBefore(document.createTextNode(`${content.email} `), email.firstChild);
   }
+
+  const footerEmail = document.querySelector("[data-footer-email]");
+  if (footerEmail && content.email) {
+    footerEmail.href = `mailto:${content.email}`;
+    footerEmail.textContent = content.email;
+  }
+
+  document.querySelectorAll("[data-social]").forEach((link) => {
+    const url = content[link.dataset.social];
+    if (typeof url === "string" && url.trim()) {
+      link.href = url;
+    } else {
+      link.hidden = true;
+    }
+  });
 }
 
 async function collectionPaths() {

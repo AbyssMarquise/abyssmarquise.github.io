@@ -1409,6 +1409,82 @@ summary {
   text-transform: uppercase;
 }
 
+.site-footer {
+  padding: clamp(4rem, 8vw, 7rem) 9vw 2rem;
+  background: var(--ivory-deep);
+  color: var(--ink);
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: minmax(240px, 1.5fr) minmax(150px, 0.7fr) minmax(220px, 1fr);
+  gap: clamp(3rem, 7vw, 8rem);
+  padding-bottom: clamp(3.5rem, 7vw, 6rem);
+}
+
+.footer-brand {
+  max-width: 420px;
+}
+
+.footer-logo {
+  width: min(230px, 100%);
+  height: auto;
+  margin-bottom: 1.5rem;
+}
+
+.footer-brand p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.footer-navigation,
+.footer-contact {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.8rem;
+}
+
+.footer-heading {
+  margin: 0 0 0.65rem;
+  color: var(--teal);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.footer-navigation a,
+.footer-contact a,
+.footer-bottom a {
+  color: var(--ink);
+  text-decoration: none;
+  transition: color 180ms ease;
+}
+
+.footer-navigation a:hover,
+.footer-contact a:hover,
+.footer-bottom a:hover {
+  color: var(--teal);
+}
+
+.footer-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(11, 93, 99, 0.22);
+  color: var(--muted);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+}
+
+.footer-bottom p {
+  margin: 0;
+}
+
 /* Légende des images dans GLightbox */
 .glightbox-container .gslide-description {
   width: fit-content !important;
@@ -1493,6 +1569,19 @@ summary {
     width: 82vw;
     height: 64vw;
     margin: 4rem -12vw 0 auto;
+  }
+
+  .site-footer {
+    padding-right: 7vw;
+    padding-left: 7vw;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .footer-brand {
+    grid-column: 1 / -1;
   }
 
   .scroll-cue {
@@ -1655,6 +1744,20 @@ summary {
     width: 100%;
     max-width: none;
     padding-top: 0;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .footer-brand {
+    grid-column: auto;
+  }
+
+  .footer-bottom {
+    align-items: flex-start;
+    flex-direction: column;
   }
 }
 
