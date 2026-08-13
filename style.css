@@ -11,8 +11,8 @@
   --taupe: #a89b8c;
   --champagne: #c3a26d;
   --line: rgba(11, 93, 99, 0.24);
-  --serif: "Cormorant Garamond", "Iowan Old Style", Georgia, serif;
-  --sans: "Manrope", "Avenir Next", "Segoe UI", Arial, sans-serif;
+  --script: "Alex Brush", cursive;
+  --mono: "IBM Plex Mono", monospace;
 }
 
 * {
@@ -21,14 +21,14 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 100px;
+  scroll-padding-top: 50px;
 }
 
 body {
   margin: 0;
   background: var(--ivory);
   color: var(--ink);
-  font-family: var(--sans);
+  font-family: var(--mono);
   text-rendering: optimizeLegibility;
 }
 
@@ -163,51 +163,37 @@ summary {
   line-height: 1;
 }
 
-.wordmark-name {
-  display: block;
-  font-family: "Italianno", cursive;
-  font-size: clamp(2.25rem, 2.6vw, 3.15rem);
-  font-weight: 300;
-  line-height: 0.80;
-  letter-spacing: 0.01em;
-  color: var(--ink, #171714);
-  white-space: nowrap;
-  margin-top: 1rem;
+.wordmark {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  text-decoration: none;
 }
 
-.wordmark {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.7rem;
-  line-height: 1;
+.wordmark-identity {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.wordmark-name {
+  color: var(--ink);
+  font-family: "Alex Brush", cursive;
+  font-size: clamp(1.8rem, 2.2vw, 2.5rem);
+  font-weight: 400;
+  line-height: 0.72;
+  white-space: nowrap;
 }
 
 .wordmark-role {
-  display: block;
-  margin-top: 0.5rem;
-  padding-left: 0.15rem;
-  font-family: inherit;
-  font-size: 0.61rem;
-  font-weight: 600;
-  line-height: 1.2;
-  letter-spacing: 0.17em;
+  margin-top: 0.42rem;
+  color: var(--teal);
+  font-size: clamp(0.48rem, 0.62vw, 0.62rem);
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  line-height: 1;
   text-transform: uppercase;
-  color: var(--teal, #066460);
   white-space: nowrap;
-}
-
-.wordmark-logo {
-  display: block;
-  width: 74px;
-  height: auto;
-}
-
-.wordmark span {
-  font-family: var(--sans);
-  font-size: 0.72rem;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
 }
 
 .desktop-nav {
@@ -281,6 +267,29 @@ summary {
   border-radius: 50%;
 }
 
+.hero-identity {
+  margin-bottom: 1.5rem;
+}
+
+.hero-name {
+  margin: 0;
+  color: var(--ink);
+  font-family: "Alex Brush", cursive;
+  font-size: clamp(3rem, 4.5vw, 5rem);
+  font-weight: 400;
+  line-height: 0.85;
+}
+
+.hero-role {
+  margin: 0.75rem 0 0;
+  color: var(--teal);
+  font-size: clamp(0.65rem, 0.85vw, 0.82rem);
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+
 .section-index {
   position: absolute;
   top: 88px;
@@ -320,10 +329,44 @@ summary {
 .hero h1 {
   margin: 0;
   font-family: var(--serif);
-  font-size: clamp(5rem, 8.3vw, 9.4rem);
+  font-size: clamp(3.25rem, 5.395vw, 6.11rem);
   font-weight: 400;
   letter-spacing: -0.065em;
   line-height: 0.78;
+}
+
+.hero-copy>h1,
+.about-heading h2,
+.section-heading h2,
+.contact-section h2,
+.project-content h3 {
+  font-family: var(--serif);
+}
+
+.hero-name,
+.wordmark-name {
+  font-family: var(--script);
+}
+
+.intro,
+.about-copy,
+.contact-copy,
+.project-description {
+  font-family: var(--mono);
+  font-size: 0.95rem;
+  font-weight: 400;
+  letter-spacing: -0.025em;
+  line-height: 1.8;
+}
+
+.desktop-nav,
+.mobile-menu,
+.hero-role,
+.section-label,
+.project-type,
+.button,
+.site-footer {
+  font-family: var(--mono);
 }
 
 .title-rule {
@@ -736,7 +779,7 @@ summary {
 
 .about-heading {
   width: 100%;
-  margin-bottom: 4rem;
+  scroll-margin-top: 80px;
 }
 
 .section-label {
@@ -774,10 +817,8 @@ summary {
 }
 
 .about-content {
-  display: grid;
-  grid-template-columns: 300px minmax(0, 720px);
-  align-items: start;
-  gap: clamp(3rem, 6vw, 7rem);
+  display: block;
+  width: 100%;
 }
 
 .portrait-photo {
