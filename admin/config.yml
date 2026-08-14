@@ -2,13 +2,14 @@ backend:
   name: github
   repo: abyssmarquise/abyssmarquise.github.io
   branch: main
+  squash_merges: true
   base_url: https://camylle-portfolio-decap-auth.abyssmarquise.workers.dev
   auth_endpoint: /auth
 
+publish_mode: editorial_workflow
+
 media_folder: images
 public_folder: /images
-
-publish_mode: editorial_workflow
 
 collections:
   - name: pages
