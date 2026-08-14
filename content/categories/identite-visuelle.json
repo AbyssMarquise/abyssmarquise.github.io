@@ -1,11 +1,14 @@
 {
   "verb": "Créer",
-  "title": "Identité visuelle",
+  "title": "Image de marque ",
   "description": "Donnez une personnalité unique à votre entreprise en créant une image de marque cohérente et mémorable.",
   "projectTypes": [
+    "Nommage",
     "Logo",
     "Palette de couleurs",
     "Typographie",
-    "Guide de marque"
+    "Guide de marque",
+    "Iconographie",
+    "Motifs"
   ]
 }
