@@ -1,13 +1,13 @@
 {
-  "title": "Identité visuelle de ma marque professionnelle",
-  "date": "2026-08-13",
+  "domain": "Graphisme",
   "classification": {
-    "category": "Identité visuelle",
-    "projectType": "Guide de marque"
+    "category": "Image de marque ",
+    "projectType": ""
   },
   "layout": "single",
-  "domain": "Graphisme",
   "client": "Moi même",
+  "date": "2026-08-13",
+  "title": "Identité visuelle de ma marque professionnelle",
   "brief": "Ce tableau représente l'identité visuelle créée pour ma marque professionnelle.",
   "image": "/images/projet-01-1.webp",
   "tools": [
