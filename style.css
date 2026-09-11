@@ -103,13 +103,6 @@ summary {
     box-shadow 180ms ease;
 }
 
-.header-cta::after,
-.mobile-menu-cta::after {
-  content: "→";
-  margin-left: 0.55rem;
-  transition: transform 180ms ease;
-}
-
 .header-cta:hover,
 .header-cta:focus-visible {
   background-color: transparent;
