@@ -961,6 +961,36 @@ summary {
   transform: translateY(-2px);
 }
 
+.button-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 3rem;
+  padding: 0.7rem 1.25rem;
+
+  border: 1px solid var(--teal);
+  border-radius: 999px;
+
+  color: var(--teal);
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1;
+  white-space: nowrap;
+
+  transition:
+    background-color 180ms ease,
+    color 180ms ease,
+    transform 180ms ease;
+}
+
+.button-secondary:hover,
+.button-secondary:focus-visible {
+  background-color: var(--teal);
+  color: #fff;
+  transform: translateY(-2px);
+}
+
 .text-link {
   padding: 0.5rem 0;
   border-bottom: 1px solid var(--line);
